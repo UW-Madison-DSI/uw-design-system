@@ -1,0 +1,14 @@
+{
+  "name": "uw-slides-skills",
+  "description": "UW-Madison Claude Code skills and plugins",
+  "owner": {
+    "name": "Steve Wangen"
+  },
+  "plugins": [
+    {
+      "name": "uw-slides",
+      "source": "./",
+      "description": "Generate UW-Madison branded HTML slide presentations"
+    }
+  ]
+}
