@@ -1,0 +1,9 @@
+{
+  "name": "uw-slides",
+  "version": "1.0.0",
+  "description": "Generate UW-Madison branded HTML slide presentations with proper brand identity, colors, typography, and logo usage",
+  "author": {
+    "name": "Steve Wangen"
+  },
+  "license": "MIT"
+}

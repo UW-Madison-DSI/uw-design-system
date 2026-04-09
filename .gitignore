@@ -1,0 +1,22 @@
+# UW brand assets (large binaries, not part of the plugin)
+uw resources/
+
+# Generated presentations
+uw-presentation-*.html
+
+# Claude Code local settings
+.claude/
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node
+node_modules/
+
+# Environment
+.env
