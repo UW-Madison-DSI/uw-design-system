@@ -35,6 +35,10 @@ This is the complete HTML boilerplate for every UW-Slides presentation. Claude r
 
     /* ===== Slide-Type-Specific Styles ===== */
     {{SLIDE_TYPE_CSS}}
+
+    /* ===== Decorative Element Styles ===== */
+    /* See slide-types.md "Decorative Brand Elements" section for full reference */
+    {{DECORATIVE_CSS}}
   </style>
 </head>
 <body>

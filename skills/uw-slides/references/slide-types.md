@@ -494,3 +494,144 @@ The final slide. Thank you, questions, or contact information. Re-establishes br
 5. **No all-caps**: Use title case or sentence case for headings (per accessibility and StratComm guidelines).
 6. **Presenter notes**: Add `data-notes="..."` to any `<section class="slide">` for speaker notes (toggled with N key).
 7. **Semantic HTML**: Use `<section>`, `<h2>`, `<ul>`, `<blockquote>`, `<table>`, `<cite>` appropriately.
+
+---
+
+## Decorative Brand Elements
+
+Brand assets from `assets/brand/` can be embedded to add visual personality. See `references/asset-registry.md` for the full catalog. All decorative images use `aria-hidden="true"` and `alt=""`.
+
+### Embedding Method
+
+Read the asset file and embed as a base64 data URI:
+```html
+<img src="data:image/png;base64,{BASE64_DATA}" class="decorative" aria-hidden="true" alt="">
+```
+
+For SVG icons, embed as inline `<svg>` markup (read the file, paste the SVG content).
+
+### CSS for Decorative Elements
+
+```css
+/* Base decorative positioning */
+.decorative {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+.slide-content { position: relative; z-index: 1; }
+
+/* Watermark (e.g., hand-drawn W or campus illustration) */
+.decorative--watermark {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: clamp(120px, 20vw, 250px);
+  opacity: 0.07;
+}
+
+/* Corner accent (e.g., wave, scribble) */
+.decorative--corner-br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: clamp(150px, 25vw, 350px);
+  opacity: 0.12;
+}
+.decorative--corner-tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(150px, 25vw, 350px);
+  opacity: 0.12;
+}
+
+/* Background texture overlay */
+.decorative--texture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+
+/* Inline icon next to text (in cards, list items) */
+.slide-icon {
+  width: 2em;
+  height: 2em;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.slide-icon--large {
+  width: 3em;
+  height: 3em;
+}
+
+/* Icon + text card layout */
+.icon-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+}
+.icon-card .slide-icon {
+  margin-top: 0.2em;
+}
+
+/* Campus illustration as section background */
+.decorative--illustration {
+  position: absolute;
+  bottom: 8%;
+  right: 5%;
+  width: clamp(180px, 25vw, 350px);
+  opacity: 0.1;
+}
+
+/* For dark/red background slides, use white element variants */
+.slide--divider .decorative { opacity: 0.15; }
+```
+
+### Decoration Rules Per Slide Type
+
+| Slide Type | Recommended Decorations |
+|-----------|------------------------|
+| `title-slide` | Hand-drawn W watermark (bottom-right, 7% opacity) OR campus illustration. Optional: long-wave accent at bottom edge. |
+| `section-divider` | White wave or scribble element (corner, 15% opacity). Optional: texture overlay at 5%. |
+| `content` | Contextual SVG icons in card layouts (icon-card class). No background decorations to keep focus on text. |
+| `two-column` | Optional: small icon at the top of each column to visually label them. |
+| `data-chart` | Minimal decoration. Optional: subtle texture on the chart container background. |
+| `quote` | Word-bubble-scribble element behind the quote (10% opacity). Or oversized decorative quotation mark only (no extra element). |
+| `image-feature` | No additional decoration (the image IS the decoration). |
+| `code` | No decoration. |
+| `references` | No decoration. |
+| `closing` | Hand-drawn W watermark (centered, 7% opacity behind content) OR campus illustration (Bascom Hall is the default). |
+
+### Icon Usage in Content Slides
+
+When a content slide uses cards or a feature grid, add contextually relevant SVG icons:
+
+```html
+<div class="card-grid stagger">
+  <div class="card icon-card">
+    <svg class="slide-icon"><!-- inline SVG from assets/brand/icons/ --></svg>
+    <div>
+      <h3>Feature Title</h3>
+      <p>Brief description of the feature.</p>
+    </div>
+  </div>
+  <!-- more cards -->
+</div>
+```
+
+Choose icons that match the card content. See the categorized icon list in `references/asset-registry.md`.
+
+### Decoration Budget
+
+To keep presentations clean and professional:
+- **Max 2-3 decorative elements per slide** (not counting the logo)
+- **Max 1 texture overlay per presentation** (use on one section divider, not all)
+- **Max 4 unique icons per presentation** (reuse is fine)
+- **Watermarks should never exceed 10% opacity** on light backgrounds, 15% on dark
+- Decorations must never compete with content for attention

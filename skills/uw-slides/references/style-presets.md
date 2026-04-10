@@ -44,6 +44,12 @@ Full-color W Crest, upper-right, on title and closing slides only.
 - Red bullet markers on lists
 - Clean card backgrounds for grouped content
 
+### Decorations
+- **Title slide**: Subtle hand-drawn W watermark (bottom-right, 7% opacity)
+- **Section dividers**: None (keep clean for classroom projection)
+- **Content slides**: Use SVG icons in card layouts when presenting features or concepts. Pick from Academic/Research category.
+- **Closing slide**: Campus illustration of the relevant building (e.g., the department's building) at 8% opacity
+
 ---
 
 ## Preset: `research`
@@ -86,6 +92,13 @@ Full-color W Crest on title slide. Omitted on content slides to maximize space f
 - Numbered slide references in bottom-left corner
 - Table-friendly layouts with brand-colored headers
 - Two-column default for literature review / methods comparison
+
+### Decorations
+- **Title slide**: Campus illustration (e.g., Science Hall, Bascom) as bottom-right watermark at 8% opacity. Optional: `hand-drawn-grid` texture at 4% behind the title area for a scholarly feel.
+- **Section dividers**: White `short-wave` element in bottom-right corner at 12% opacity
+- **Content slides**: SVG icons from Academic/Research or Health/Science categories in card layouts. Especially useful for methodology/results slides.
+- **Data slides**: Minimal. Optional subtle `dash-line` element as a separator.
+- **Closing slide**: Bascom Hall illustration at 10% opacity behind contact info
 
 ---
 
@@ -130,6 +143,12 @@ Full-color W Crest on title slide and closing slide.
 - Bold red section dividers that fill the entire slide
 - Wider spacing between elements
 
+### Decorations
+- **Title slide**: `long-wave` element (red) along bottom edge at 15% opacity for a bold branded accent. Hand-drawn W watermark at 6% opacity.
+- **Section dividers**: White `explosion` or `asterisk-thick` element as a corner accent (15% opacity). White `ripple-medium` texture at 5% overlay.
+- **Content slides**: SVG icons in card layouts. Use bold, action-oriented icons (target, lightbulb, chart, award).
+- **Closing slide**: `W` hand-drawn element centered behind "Thank You" at 6% opacity
+
 ---
 
 ## Preset: `department`
@@ -172,6 +191,12 @@ Full-color W Crest on title and closing slides.
 - Card-based layouts for organized information
 - Two-column layouts for team/org structures
 - Subtle, professional color usage
+
+### Decorations
+- **Title slide**: Campus illustration (Memorial Union or department building) at 8% opacity. `mini-bars` element as a subtle accent.
+- **Section dividers**: White `dash-line` accent at bottom (12% opacity). Keep section dividers clean since the gray-blue background is already distinctive.
+- **Content slides**: SVG icons in card layouts for org structures, team info. Use People/Community and Business/Professional icons.
+- **Closing slide**: Campus illustration at 10% opacity
 
 ---
 
@@ -216,6 +241,13 @@ Full-color W Crest on white slides. White 1-color crest on image/red slides.
 - High-energy, bold typography
 - Image-feature slides are the default content type
 - For image slides: use CSS gradient overlay `linear-gradient(rgba(197,5,12,0.85), rgba(155,0,0,0.9))` over background images
+
+### Decorations
+- **Title slide**: Campus illustration (Camp Randall Arch, Memorial Union, or Red Gym) prominently at 15-20% opacity as background element. `long-wave` element (white) at bottom.
+- **Section dividers**: `explosion` or `lightning-bolt` (white) as bold corner accent (20% opacity). `hand-drawn-dots` texture at 6% overlay.
+- **Content slides**: SVG icons prominently in card layouts. Use Campus Life, People/Community icons. Make icons larger (slide-icon--large class).
+- **Red overlay slides**: White `short-wave` element as bottom accent. White `scribble1` as playful corner decoration.
+- **Closing slide**: Bascom Hall or Memorial Union illustration at 12% opacity, centered
 
 ---
 
@@ -272,6 +304,12 @@ Full-color W Crest upper-right on title slide only. Omitted elsewhere to maximiz
 - Red vertical rule accent on the left side of data areas
 - Tighter padding to maximize chart space
 - Brand-colored chart palette (red, blue, gray-blue, yellow, dark red, charcoal)
+
+### Decorations
+- **Title slide**: Minimal. `hand-drawn-grid` texture at 3% opacity behind the title for a data/grid feel.
+- **Section dividers**: White `dash-line` element only (keep minimal, data speaks for itself)
+- **Content/data slides**: SVG icons from Data/Analytics category as small labels next to chart titles. Keep decorations to an absolute minimum on data slides.
+- **Closing slide**: Subtle `mini-bars` element accent
 
 ---
 
@@ -337,6 +375,12 @@ Red mini-bar above headings on dark background. Progress bar in red.
   background: #333333;
 }
 ```
+
+### Decorations
+- **Title slide**: White `W` hand-drawn element as watermark (bottom-right, 5% opacity). White `long-wave` along bottom edge at 8%.
+- **Section dividers**: Red `scribble1` or `short-wave` on the red section divider (white element, 15% opacity). `ripple-large` texture at 4%.
+- **Content slides**: SVG icons (white stroke override) in card layouts. Use Business/Professional icons.
+- **Closing slide**: Bascom Hall illustration (white/inverted via CSS `filter: brightness(0) invert(1)`) at 8% opacity
 
 ---
 
@@ -414,3 +458,10 @@ White mini-bar above headings (since background is red). Yellow accent bar on sp
 .slide--light .uw-mini-bar::before { background-color: #c5050c; }
 .slide--light ul li::before { background-color: #c5050c; }
 ```
+
+### Decorations
+- **Title slide**: White `explosion` or `asterisk-thick` element as bold corner accent (20% opacity). White `W` hand-drawn element as watermark (8%). `hand-drawn-dots` texture (white) at 6%.
+- **Section dividers** (dark red): White `lightning-bolt` or `short-wave` corner accent (18% opacity)
+- **Content slides** (red background): White SVG icons prominently in card layouts (override stroke to white). Use Campus Life, Food, or Weather icons for celebratory feel. `scribble2` (white) as playful corner accent.
+- **White relief slides**: Red decorative elements at full brand opacity. `long-wave` (red) bottom accent.
+- **Closing slide**: White `W` element centered at 10% opacity. Campus illustration (Camp Randall Arch or Memorial Union) in white at 12%.

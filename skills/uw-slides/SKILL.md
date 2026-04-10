@@ -79,15 +79,27 @@ Load these files and follow their specifications:
 - No all-caps headings
 - No black text on red backgrounds
 
+**Decorative elements (adds visual personality):**
+- Load `references/asset-registry.md` to see what brand assets are available
+- Follow the decoration rules in the selected preset (see `references/style-presets.md`)
+- Follow the per-slide-type rules in `references/slide-types.md` (Decorative Brand Elements section)
+- Read the specific asset files from `assets/brand/` and embed as base64 data URIs for PNGs, or inline SVG markup for icons
+- Use `class="decorative"` with `aria-hidden="true"` and `alt=""` for all decorative images
+- CSS classes for positioning: `decorative--watermark`, `decorative--corner-br`, `decorative--corner-tl`, `decorative--texture`, `decorative--illustration`
+- Budget: max 2-3 decorative elements per slide, max 1 texture overlay per deck, watermarks at 7-10% opacity
+- Pick SVG icons contextually (see categorized list in asset-registry.md) for card layouts on content slides
+
 **Technical:**
 - Single self-contained `.html` file
-- All CSS in one `<style>` block (viewport-base + preset + slide-type styles)
+- All CSS in one `<style>` block (viewport-base + preset + slide-type + decorative styles)
 - All JS in one `<script>` block (SlidePresentation class)
 - SVG logos embedded as inline `<svg>` markup (not as `<img>` tags)
+- SVG icons embedded as inline `<svg>` markup
+- PNG assets (elements, illustrations, textures) embedded as `data:image/png;base64,...` data URIs
 - Font links to both `cdn.wisc.cloud` and Google Fonts (dual fallback)
 - Favicon as data URI from `favicon-w.svg`
 - Every `<img>` has descriptive `alt` text
-- `aria-hidden="true"` on decorative SVGs (logo, icons)
+- `aria-hidden="true"` on decorative elements (logos, icons, watermarks, accents)
 - `data-notes="..."` on slides where presenter notes would be helpful
 - Navigation dots: one `<button class="nav-dot">` per slide
 
@@ -147,8 +159,9 @@ If the user asks:
 ## Resource Files
 Load on-demand during generation:
 - `references/brand-system.md` - Full brand specification
-- `references/style-presets.md` - CSS for all 8 presets
-- `references/slide-types.md` - HTML structure per slide type
+- `references/style-presets.md` - CSS for all 8 presets (includes decoration rules per preset)
+- `references/slide-types.md` - HTML structure per slide type (includes decoration placement rules)
+- `references/asset-registry.md` - Catalog of all brand assets (icons, elements, illustrations, textures)
 - `references/best-practices.md` - Content rules from StratComm
 - `references/accessibility.md` - WCAG compliance details
 - `assets/html-template.md` - HTML boilerplate + JS
@@ -156,3 +169,7 @@ Load on-demand during generation:
 - `assets/uw-crest-color.svg` - Full-color W Crest
 - `assets/uw-crest-1color.svg` - 1-color W Crest
 - `assets/favicon-w.svg` - Favicon SVG
+- `assets/brand/icons/` - 211 SVG icons (read specific ones based on content)
+- `assets/brand/elements/[red|white]/` - Hand-drawn decorative elements (PNG)
+- `assets/brand/illustrations/` - Campus building line drawings (PNG)
+- `assets/brand/textures/` - Background texture patterns (PNG)
