@@ -103,6 +103,16 @@ Load these files and follow their specifications:
 - `data-notes="..."` on slides where presenter notes would be helpful
 - Navigation dots: one `<button class="nav-dot">` per slide
 
+**Accessibility (NON-NEGOTIABLE):**
+- Spell out all acronyms on first use, with the abbreviation in parentheses (e.g., "Retrieval-Augmented Generation (RAG)"). Use the acronym alone afterward.
+- Use plain language; define domain-specific terms in context when the audience may not know them
+- Every slide with a chart, image, diagram, code block, or non-trivial visual layout MUST have a `data-notes` attribute describing what the visual shows in plain language - so users can understand the slide without seeing it
+- For data charts: notes describe the trend, key values, and what they mean (not just the topic)
+- For images: notes describe what is depicted and why it matters
+- For code: notes summarize what the code does in plain language
+- Notes on regular content slides should add context for the speaker, not just repeat what's already on the slide
+- See `references/accessibility.md` (Content Accessibility section) for full guidance and `references/best-practices.md` rules 15-17
+
 ### File Output
 
 Write the HTML file to the user's working directory with a descriptive filename:
@@ -122,6 +132,13 @@ After generating the file:
    - Press **N** to toggle presenter notes
    - Press **Ctrl+P** for print-friendly output
    - The presentation works offline (fonts fall back to Arial)
+3. Surface a brief accessible delivery checklist (per UW IT guidance, see `references/delivery-guide.md`):
+   - Use a microphone, even in small rooms
+   - Speak slower than natural conversation pace
+   - Describe visuals on each slide aloud (charts, images, diagrams)
+   - Repeat audience questions before answering
+   - Share the slide file ahead of time when possible
+   - Avoid virtual backgrounds in online presentations
 
 ## Phase 5: Optional Export/Deploy
 
@@ -162,8 +179,9 @@ Load on-demand during generation:
 - `references/style-presets.md` - CSS for all 8 presets (includes decoration rules per preset)
 - `references/slide-types.md` - HTML structure per slide type (includes decoration placement rules)
 - `references/asset-registry.md` - Catalog of all brand assets (icons, elements, illustrations, textures)
-- `references/best-practices.md` - Content rules from StratComm
-- `references/accessibility.md` - WCAG compliance details
+- `references/best-practices.md` - Content rules from StratComm (includes accessibility content rules 15-17)
+- `references/accessibility.md` - WCAG compliance details + UW IT content accessibility guidelines (UW-519)
+- `references/delivery-guide.md` - Accessible presentation delivery practices (surfaced to user in Phase 4)
 - `assets/html-template.md` - HTML boilerplate + JS
 - `assets/viewport-base.css` - Base CSS
 - `assets/uw-crest-color.svg` - Full-color W Crest

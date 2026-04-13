@@ -182,6 +182,10 @@ Side-by-side layout for comparisons, text+image, or parallel points.
 ### Animation
 `animate-in` on heading, `stagger` on the two-column container
 
+### Accessibility
+- Reading order is left column first, then right column. Structure HTML so the left column appears first in source order (which it does naturally with CSS Grid).
+- If columns compare two things, presenter notes should summarize both. Example: "Comparison of API-first vs web-scraping retrieval: API-first is faster and more reliable for major publishers, while web scraping handles long-tail and gated content."
+
 ---
 
 ## 5. `data-chart`
@@ -247,6 +251,14 @@ Use the preset's chart palette: `--uw-chart-1` through `--uw-chart-6`. Default: 
 ### Animation
 `animate-in` on heading, `animate-scale` on chart container
 
+### Accessibility (REQUIRED)
+- `data-notes` MUST describe the trend, key values, and what they mean - not just the topic
+- Good: "Bar chart showing prescreen filtering reduced 100,000 papers to 30,000 candidates, saving 70% of LLM costs."
+- Bad: "Cost savings chart" (doesn't describe what's shown)
+- For tables: use `<thead>`, `<th scope="col">`, and `<th scope="row">` for screen reader navigation
+- Color alone must not convey meaning - distinguish data series with both color AND labels
+- Caption should reinforce the takeaway, not just cite the source
+
 ---
 
 ## 6. `quote`
@@ -275,6 +287,11 @@ The `blockquote::before` pseudo-element provides the oversized red quotation mar
 
 ### Animation
 `animate-in` on `.slide-content`
+
+### Accessibility
+- Use semantic `<blockquote>` and `<cite>` elements (already in the template)
+- `data-notes` should remind the speaker to attribute the quote aloud (e.g., "Quote from the 1894 Board of Regents 'sifting and winnowing' statement; attribute by name and date when speaking")
+- The decorative quotation mark should not interfere with screen reader output (use `::before` content in CSS, not in HTML)
 
 ---
 
@@ -347,6 +364,12 @@ For the `recruitment` preset, use a red gradient overlay instead:
 ### Animation
 `animate-in` or `animate-fade`
 
+### Accessibility (REQUIRED)
+- `<img>` MUST have a descriptive `alt` attribute that conveys the meaning of the image (not just "image of building")
+- Background images set via CSS `background-image` are decorative and need text equivalents in `data-notes`
+- `data-notes` MUST describe what is depicted and why it matters. Example: "Photo of the Memorial Union terrace at sunset, illustrating campus life and the welcoming atmosphere we want to convey to prospective students."
+- Text overlaid on images must maintain 4.5:1 contrast against the image. The dark gradient overlay handles this for most photos, but verify with light or busy images.
+
 ---
 
 ## 8. `code`
@@ -383,6 +406,13 @@ Use inline `<span>` elements with color classes for basic highlighting:
 
 ### Animation
 `animate-in` on heading and `<pre>` block
+
+### Accessibility (REQUIRED)
+- `data-notes` MUST summarize what the code does in plain language. Example: "Python function that takes a paper ID, retrieves its full text from the database, and extracts mechanistic equations using a structured-output LLM call."
+- Use `<pre><code>` semantically (already in the template) so screen readers announce it as code
+- Syntax highlighting via color is decorative; the code itself must be understandable in monochrome
+- Keep code lines under 60 characters where possible to remain readable when zoomed
+- For complex code, follow with a content slide that explains the code in prose
 
 ---
 

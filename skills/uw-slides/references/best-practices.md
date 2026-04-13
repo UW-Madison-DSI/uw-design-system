@@ -33,3 +33,11 @@ Distilled from UW-Madison Strategic Communications' "Slide Presentations the Str
 13. **Start strong, end clear.** Title slide should intrigue. Closing slide should have contact info or a call to action, not just "Thank You."
 
 14. **Data needs context.** Charts and numbers need a clear heading that states the takeaway, not just the topic. "Revenue Grew 23%" is better than "Revenue Data."
+
+## Accessibility Rules
+
+15. **Spell out acronyms on first use.** "Retrieval-Augmented Generation (RAG)" on first mention; "RAG" thereafter. Aids comprehension for non-experts and accessibility for screen reader users. Per UW IT accessible presentations guidance.
+
+16. **Use plain language.** Avoid jargon when a common word will do. Define technical terms in context when the audience may not know them. Per UW IT accessible presentations guidance.
+
+17. **Write meaningful presenter notes.** Every slide with a chart, image, diagram, code block, or non-trivial visual layout needs a `data-notes="..."` attribute describing what the visual shows and why it matters. Someone reading only the notes (without seeing the slide) should understand the content. Per UW Policy UW-519 and UW IT accessibility guidance.

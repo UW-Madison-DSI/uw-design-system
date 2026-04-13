@@ -97,3 +97,37 @@ The SlidePresentation JS class must support:
   - Make all animated content visible (opacity: 1, transform: none)
   - Add page breaks between slides
   - Ensure text is black on white for printing
+
+## Content Accessibility (UW IT Guidelines)
+
+Per UW-Madison Policy UW-519 and the [UW IT accessible presentations guide](https://it.wisc.edu/learn/make-it-accessible/accessible-online-and-in-person-presentations/), generated presentations must satisfy these *content* accessibility requirements in addition to the technical/markup requirements above.
+
+### Plain Language and Acronyms
+
+- **Spell out acronyms on first use**: write the full term followed by the abbreviation in parentheses, e.g., "Retrieval-Augmented Generation (RAG)"
+- After first use, the acronym alone is fine
+- Avoid jargon when a plain term works
+- Define domain-specific terms in context when the audience may not know them
+- This aids comprehension for non-experts and screen reader users alike
+
+### Presenter Notes Describe Visuals
+
+Every slide that contains a chart, diagram, image, code block, or non-trivial visual layout MUST have a `data-notes="..."` attribute on the `<section class="slide">` element describing the visual content.
+
+The notes should let someone understand the slide without seeing it:
+- **Charts**: describe the trend, key values, and the takeaway. Example: "Bar chart showing prescreen filtering reduces papers from 100,000 to about 30,000 before expensive retrieval, saving roughly 70% of LLM costs."
+- **Images**: describe what is depicted and why it matters. Example: "Photo of a herd of dairy cows on a Wisconsin pasture, illustrating the agricultural focus of the dataset."
+- **Diagrams**: describe the components and their relationships. Example: "Pipeline diagram showing four sequential stages: Ingestion to Research Agent to Model Agent to Review Agent, with arrows indicating data flow."
+- **Code**: summarize what the code does in plain language. Example: "Python function that takes a paper ID and returns the extracted equation as a SymPy expression."
+
+### Materials Independence
+
+The presentation file should be self-explanatory enough that someone who cannot attend the live event can still understand it from the speaker notes. This is why descriptive presenter notes are a generation requirement, not optional.
+
+When sharing materials in advance (recommended for accessibility), the recipient relies entirely on what's in the slide plus the notes.
+
+### Reference
+
+- **UW-Madison Digital Accessibility Policy**: UW-519
+- **Center for User Experience** - Free accessibility evaluation and consultation: centerforux@wisc.edu
+- **Delivery guidance**: see `references/delivery-guide.md` for accessible presentation delivery practices (microphone, pacing, describing visuals aloud, Q&A practices)
