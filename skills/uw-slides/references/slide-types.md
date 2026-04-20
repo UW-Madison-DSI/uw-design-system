@@ -41,12 +41,12 @@ The opening slide. Sets the tone, identifies the presentation, and establishes b
   margin-top: clamp(1.5rem, 3vw, 3rem);
 }
 .slide-author {
-  font-family: var(--uw-heading-font);
+  font-family: var(--uw-font-heading);
   font-weight: 600;
-  font-size: var(--uw-body-size);
+  font-size: var(--uw-slide-body-size);
 }
 .slide-date {
-  font-size: var(--uw-caption-size);
+  font-size: var(--uw-slide-caption-size);
   color: var(--uw-text-secondary);
 }
 ```
@@ -85,7 +85,7 @@ A visual break between major sections. Bold, simple, high-impact.
   align-items: flex-start;
 }
 .slide--divider .slide-heading {
-  font-size: var(--uw-title-size);
+  font-size: var(--uw-slide-title-size);
   color: #ffffff;
 }
 .slide--divider .slide-subtitle {
@@ -449,7 +449,7 @@ For citations, bibliography, and source attribution. Smaller text, efficient lay
 ### CSS
 ```css
 .slide--references .references-list {
-  font-size: var(--uw-caption-size);
+  font-size: var(--uw-slide-caption-size);
   line-height: 1.6;
 }
 .slide--references ol {
@@ -457,7 +457,7 @@ For citations, bibliography, and source attribution. Smaller text, efficient lay
   padding-left: 2em;
 }
 .slide--references li {
-  font-size: var(--uw-caption-size);
+  font-size: var(--uw-slide-caption-size);
   margin-bottom: 0.5em;
 }
 ```
@@ -503,7 +503,7 @@ The final slide. Thank you, questions, or contact information. Re-establishes br
 }
 .closing-contact {
   margin-top: clamp(1.5rem, 3vw, 3rem);
-  font-size: var(--uw-body-size);
+  font-size: var(--uw-slide-body-size);
 }
 .closing-contact p {
   margin-bottom: 0.25em;

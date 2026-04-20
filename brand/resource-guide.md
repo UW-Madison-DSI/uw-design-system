@@ -206,21 +206,9 @@ The official UW-Madison web template maintained by University Marketing. This is
 | `images/favicon-512x512.png` | Large favicon |
 | `README.md` | Template usage notes |
 
-### Key CSS Design Tokens (from `:root` in uw-style.css)
+### CSS Design Tokens
 
-```css
---uwRed: #c5050c;
---uwRedDark: #9B0000;
---uwGrayDark: #282728;
---uwGrayLight: #e1e5e7;
---uwGrayLightest: #f3f3f3;
---uwWhite: #ffffff;
---uwBlack: #121212;
---uwDisplayFont: Red Hat Display, sans-serif;
---uwTextFont: Red Hat Text, sans-serif;
-```
-
-Fonts load from `https://cdn.wisc.cloud/fonts/uw-rh/0.0.1/fonts.css`.
+UW Style CSS uses camelCase token names (e.g., `--uwRed`). See `tokens.md` for the canonical kebab-case names used by this design system and the full mapping table between the two conventions.
 
 ---
 

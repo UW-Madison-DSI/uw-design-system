@@ -51,7 +51,8 @@ Load these files and follow their specifications:
 2. **`assets/viewport-base.css`** - The base CSS (paste it into the `<style>` block)
 3. **`references/style-presets.md`** - The selected preset's CSS variables and overrides
 4. **`references/slide-types.md`** - HTML structure for each slide type used
-5. **`../../brand/brand-system.md`** - Color palette, typography, logo rules
+5. **`../../brand/tokens.md`** - Design tokens (colors, fonts, type scale, spacing, chart palette)
+6. **`../../brand/brand-system.md`** - Logo rules, brand voice
 6. **`../../brand/assets/uw-crest-color.svg`** or **`../../brand/assets/uw-crest-1color.svg`** - Read the SVG and embed inline
 
 ### Generation Rules
@@ -71,7 +72,7 @@ Load these files and follow their specifications:
 
 **Brand compliance (NON-NEGOTIABLE):**
 - Badger Red is `#c5050c` - never modify this value
-- Fonts: Red Hat Display for headings, Red Hat Text for body
+- Fonts: `--uw-font-heading` (Red Hat Display) for headings, `--uw-font-body` (Red Hat Text) for body
 - W Crest logo on title and closing slides (upper-right)
 - Use full-color crest on light backgrounds, 1-color white crest on dark backgrounds
 - Mini-bar (`uw-mini-bar` class) above slide headings
@@ -152,23 +153,13 @@ If the user asks:
 
 # Quick Reference
 
-## Brand Colors
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `--uw-red` | `#c5050c` | Primary brand, accents, mini-bar |
-| `--uw-red-dark` | `#9B0000` | Dark red accent |
-| `--uw-black` | `#121212` | Body text, dark backgrounds |
-| `--uw-gray-dark` | `#282728` | Charcoal text |
-| `--uw-gray-light` | `#e1e5e7` | Light backgrounds |
-| `--uw-gray-lightest` | `#f3f3f3` | Near-white backgrounds |
-| `--uw-white` | `#ffffff` | White |
-| `--uw-yellow` | `#FFB500` | Accent (sparingly) |
-| `--uw-gray-blue` | `#6B8F99` | Accent |
-| `--uw-blue` | `#385966` | Accent |
-
-## Font Stack
-- Headings: `'Red Hat Display', Arial, sans-serif`
-- Body: `'Red Hat Text', Arial, sans-serif`
+## Brand Colors & Typography
+See `../../brand/tokens.md` for the canonical color palette, type scale, spacing, and animation tokens. Key values for quick reference:
+- Primary: `--uw-red` (#c5050c), `--uw-white` (#ffffff)
+- Text: `--uw-black` (#121212), `--uw-gray-dark` (#282728)
+- Accents: `--uw-yellow` (#FFB500), `--uw-gray-blue` (#6B8F99), `--uw-blue` (#385966)
+- Headings: `--uw-font-heading` (Red Hat Display, Arial, sans-serif)
+- Body: `--uw-font-body` (Red Hat Text, Arial, sans-serif)
 
 ## Slide Types
 `title-slide` | `section-divider` | `content` | `two-column` | `data-chart` | `quote` | `image-feature` | `code` | `references` | `closing`
@@ -177,7 +168,8 @@ If the user asks:
 Load on-demand during generation:
 
 ### From design system (`../../brand/`)
-- `../../brand/brand-system.md` - Full brand specification
+- `../../brand/tokens.md` - Canonical design tokens (colors, typography, spacing, animation, chart palette, UW Style CSS mapping)
+- `../../brand/brand-system.md` - Brand rules, logo usage, voice and tone
 - `../../brand/accessibility.md` - WCAG compliance details + UW IT content accessibility guidelines (UW-519)
 - `../../brand/asset-registry.md` - Catalog of all brand assets (icons, elements, illustrations, textures)
 - `../../brand/assets/uw-crest-color.svg` - Full-color W Crest

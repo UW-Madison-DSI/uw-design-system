@@ -8,7 +8,8 @@ All source material comes from [brand.wisc.edu/resources](https://brand.wisc.edu
 
 | Path | Contents |
 |------|----------|
-| `brand-system.md` | Color palette, typography, logo rules, voice and tone |
+| `tokens.md` | **Canonical design tokens**: colors, typography, spacing, animation, chart palette, UW Style CSS mapping |
+| `brand-system.md` | Logo rules, brand voice and tone (references tokens.md for values) |
 | `accessibility.md` | WCAG 2.1 AA requirements, semantic HTML patterns, ARIA landmarks |
 | `asset-registry.md` | Catalog of all brand assets with categories and usage guidance |
 | `resource-guide.md` | Index of all official UW brand resources (logos, icons, templates, etc.) |
