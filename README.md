@@ -30,6 +30,7 @@ brand/                          Design system (the core of this repo)
     elements/                     36 decorative PNGs (18 red + 18 white)
     illustrations/                20 campus building line drawings (PNG)
     textures/                     5 background texture patterns (PNG)
+  fonts/                        Red Hat Display + Text woff2 files (OFL license)
   web-template/                 Official UW Style v5.3.0 (upstream, do not modify)
 
 skills/uw-slides/               Example consumer: HTML slide generator

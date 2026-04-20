@@ -15,6 +15,7 @@ All source material comes from [brand.wisc.edu/resources](https://brand.wisc.edu
 | `asset-registry.md` | Catalog of all brand assets with categories and usage guidance |
 | `resource-guide.md` | Index of all official UW brand resources (logos, icons, templates, etc.) |
 | `web-template/` | Official UW Style v5.3.0: CSS framework, sample HTML, JS, SVG icons |
+| `fonts/` | Red Hat Display + Red Hat Text woff2 files (SIL Open Font License) |
 | `assets/` | Curated brand assets ready for embedding |
 
 ## Assets
