@@ -4,6 +4,8 @@ Single source of truth for all UW-Madison design tokens. Every color, font, size
 
 Naming convention: `--uw-{category}-{name}` (kebab-case, `uw` prefix).
 
+**Context suffixes:** Most tokens are universal (no suffix). When web pages and presentations need different values for the same role, the token is split with a `-web` or `-slide` suffix. Examples: `--uw-font-quote-web` vs `--uw-font-quote-slide`, `--uw-border-color-web` vs `--uw-border-color-slide`. Unsuffixed tokens apply everywhere.
+
 ---
 
 ## Colors
@@ -30,6 +32,9 @@ These are fixed values from the official UW-Madison brand guidelines. Never modi
   --uw-gray-blue: #6B8F99;        /* Medium Gray Blue */
   --uw-blue: #385966;             /* Dark Blue */
   --uw-link-blue: #036796;        /* Link text on light backgrounds */
+
+  /* Extended */
+  --uw-dark-blue-black: #1a1a2e;      /* Code block backgrounds, executive preset surfaces */
 
   /* Derived (from crest artwork, not for general use) */
   --uw-cream: #f6ede4;            /* Crest shield gradient */
@@ -85,7 +90,8 @@ Six sequential colors for data visualizations. Use in order; all pass AA contras
 :root {
   --uw-font-heading: 'Red Hat Display', Arial, sans-serif;
   --uw-font-body: 'Red Hat Text', Arial, sans-serif;
-  --uw-font-quote: 'Red Hat Display', Arial, sans-serif;
+  --uw-font-quote-web: 'Red Hat Text', Arial, sans-serif;
+  --uw-font-quote-slide: 'Red Hat Display', Arial, sans-serif;
   --uw-font-code: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
   --uw-font-button: 'Red Hat Text', Arial, sans-serif;
   --uw-font-caption: 'Red Hat Text', Arial, sans-serif;
@@ -146,6 +152,10 @@ Larger scale for projected slides. Values tuned for 1920x1080 projection.
 
 ## Spacing
 
+### Responsive Scale (default)
+
+Fluid spacing that adapts to viewport. Use for presentations and responsive layouts.
+
 ```css
 :root {
   --uw-space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
@@ -156,6 +166,48 @@ Larger scale for projected slides. Values tuned for 1920x1080 projection.
   --uw-space-2xl: clamp(2.5rem, 5vw, 5rem);
 }
 ```
+
+### Fixed Scale (UW Style utility classes)
+
+Fixed spacing from UW Style CSS utility classes (`.uw-pad-*`, `.uw-mg-*`). Use for web pages and components where fixed values are appropriate.
+
+| Token | Value | Utility suffix |
+|-------|-------|---------------|
+| `--uw-space-fixed-xs` | `0.25rem` (4px) | `-xs` |
+| `--uw-space-fixed-sm` | `0.5rem` (8px) | `-s` |
+| `--uw-space-fixed-md` | `1rem` (16px) | `-m` |
+| `--uw-space-fixed-lg` | `2rem` (32px) | `-l` |
+| `--uw-space-fixed-xl` | `4rem` (64px) | `-xl` |
+| `--uw-space-fixed-2xl` | `8rem` (128px) | `-xxl` |
+
+---
+
+## Border Radius
+
+Values extracted from UW Style CSS v5.3.0 component styles.
+
+```css
+:root {
+  --uw-radius-sm: 4px;               /* Form inputs, small elements */
+  --uw-radius-md: 0.5rem;            /* Buttons, cards, containers (most common) */
+  --uw-radius-lg: 1.05rem;           /* Social icons, featured elements */
+  --uw-radius-pill: 9999px;          /* Pill-shaped buttons, tags */
+  --uw-radius-circle: 50%;           /* Avatars, round icons */
+}
+```
+
+---
+
+## Shadows
+
+```css
+:root {
+  --uw-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);                    /* Subtle lift */
+  --uw-shadow-md: 2px 2px 6px 0 rgba(0, 0, 0, 0.25);              /* Cards, dropdowns, buttons */
+}
+```
+
+UW Style uses only two shadow levels. Prefer `--uw-shadow-sm` for hover states and `--uw-shadow-md` for persistent elevation (cards, dropdowns).
 
 ---
 
@@ -168,6 +220,21 @@ Larger scale for projected slides. Values tuned for 1920x1080 projection.
   --uw-content-narrow-width: 48rem;        /* Narrow content column */
 }
 ```
+
+### Breakpoints
+
+From UW Style CSS media queries. Values are in `em` (the framework convention).
+
+```css
+:root {
+  --uw-bp-sm: 37.5em;               /* 600px - Small tablets, large phones */
+  --uw-bp-md: 56.25em;              /* 900px - Tablets, small desktops */
+  --uw-bp-lg: 64em;                 /* 1024px - Desktops */
+  --uw-bp-xl: 75em;                 /* 1200px - Wide desktops, max-width cap */
+}
+```
+
+Additional breakpoints used sparingly: `17.5em` (280px, very small), `31.25em` (500px), `40em` (640px), `60.75em` (972px).
 
 ---
 
@@ -188,7 +255,9 @@ All animations must respect `prefers-reduced-motion: reduce`. See `accessibility
 
 ## Theme Tokens (Semantic)
 
-These are overridden by presets (slide presets, dark mode, etc.) to remap the brand palette to semantic roles. Default values assume a light theme.
+These map the brand palette to semantic roles. Default values assume a light theme. Dark theme values are provided for presets, dark mode, or any context with a dark background.
+
+### Light Theme (default)
 
 ```css
 :root {
@@ -209,10 +278,59 @@ These are overridden by presets (slide presets, dark mode, etc.) to remap the br
 
   /* Surfaces */
   --uw-card-bg: #f3f3f3;
+
+  /* Borders */
+  --uw-border-color-web: #cfcfcf;       /* Matches UW Style CSS form/table borders */
+  --uw-border-color-slide: #e1e5e7;     /* Brand palette gray-light */
+
+  /* Links */
+  --uw-link: #036796;
 }
 ```
 
-Presets override these values. For example, the executive preset sets `--uw-bg-primary: #121212` and `--uw-text-primary: #ffffff` for a dark theme. See `skills/uw-slides/references/style-presets.md` for all preset definitions.
+### Dark Theme
+
+Override these tokens when using a dark background (e.g., `--uw-bg-primary: #121212` or `--uw-bg-primary: #c5050c`).
+
+```css
+[data-theme="dark"], .uw-theme-dark {
+  --uw-bg-primary: #121212;
+  --uw-bg-secondary: #282728;
+
+  --uw-text-primary: #ffffff;
+  --uw-text-secondary: rgba(255, 255, 255, 0.85);
+
+  --uw-heading-color: #ffffff;
+
+  --uw-accent: #FFB500;
+  --uw-accent-secondary: #c5050c;
+
+  --uw-card-bg: #282728;
+
+  --uw-border-color-web: rgba(255, 255, 255, 0.2);
+  --uw-border-color-slide: rgba(255, 255, 255, 0.2);
+
+  --uw-link: #ffffff;
+}
+```
+
+Slide presets that use dark backgrounds (conference, executive, event) apply these overrides automatically. See `skills/uw-slides/references/style-presets.md` for all preset definitions.
+
+### Links
+
+Link styling tokens and behavior. The base color is `--uw-link-blue` (#036796) from the brand palette.
+
+```css
+:root {
+  --uw-link: var(--uw-link-blue);             /* Default link color */
+  --uw-link-hover: var(--uw-link-blue);       /* Hover: same color, add underline */
+  --uw-link-visited: var(--uw-link-blue);     /* No distinct visited color */
+  --uw-link-underline-offset: 0.125rem;
+  --uw-link-underline-thickness: 0.05em;
+}
+```
+
+UW Style CSS link behavior: links have no underline by default, gain underline on hover. The color does not change between states. In dark theme / dark backgrounds, links use `#ffffff` instead. See `brand-system.md` for link usage rules.
 
 ---
 
@@ -265,7 +383,8 @@ The official UW Style framework (v5.3.0, in `web-template/css/uw-style.css`) use
 | `--uw-font-body` | `--uwTextFont` | `Red Hat Text, sans-serif` |
 | `--uw-font-button` | `--uwButtonFont` | `Red Hat Text, sans-serif` |
 | `--uw-font-caption` | `--uwCaptionFont` | `Red Hat Text, sans-serif` |
-| `--uw-font-quote` | `--uwBlockquoteFont` | `Red Hat Text, sans-serif` |
+| `--uw-font-quote-web` | `--uwBlockquoteFont` | `Red Hat Text, sans-serif` |
+| `--uw-font-quote-slide` | *(presentation-only)* | `Red Hat Display, sans-serif` |
 | *(not applicable)* | `--uwSiteTitleFont` | `Red Hat Display, sans-serif` |
 | *(not applicable)* | `--uwSiteTaglineFont` | `Red Hat Display, sans-serif` |
 | *(not applicable)* | `--uwCopyFont` | `Red Hat Text, sans-serif` |
@@ -290,7 +409,35 @@ Note: UW Style defines more granular font tokens (site title, tagline, copy) tha
 | `--uw-space-sm` | `--uwSpacingSmall` | 0.5rem | 0.75rem |
 | `--uw-space-md` | `--uwSpacingMedium` | 1rem | 1.25rem |
 
-UW Style defines only two spacing tokens. The design system extends the scale with xs, lg, xl, and 2xl.
+UW Style defines only two spacing tokens. The design system extends the scale with xs, lg, xl, and 2xl. See "Fixed Scale" under Spacing for the utility class values.
+
+### Border Radius
+
+| Design System (canonical) | UW Style CSS | Value |
+|--------------------------|-------------|-------|
+| `--uw-radius-sm` | *(hardcoded on form inputs)* | `4px` |
+| `--uw-radius-md` | *(hardcoded on buttons, cards)* | `0.5rem` |
+| `--uw-radius-lg` | *(hardcoded on social icons)* | `1.05rem` |
+
+UW Style does not use CSS custom properties for border-radius; values are hardcoded per component.
+
+### Shadows
+
+| Design System (canonical) | UW Style CSS | Value |
+|--------------------------|-------------|-------|
+| `--uw-shadow-sm` | *(hardcoded)* | `0 2px 4px rgba(0,0,0,0.1)` |
+| `--uw-shadow-md` | *(hardcoded)* | `2px 2px 6px 0 rgba(0,0,0,0.25)` |
+
+### Breakpoints
+
+| Design System (canonical) | UW Style CSS | Value |
+|--------------------------|-------------|-------|
+| `--uw-bp-sm` | `@media (min-width: 37.5em)` | `37.5em` (600px) |
+| `--uw-bp-md` | `@media (min-width: 56.25em)` | `56.25em` (900px) |
+| `--uw-bp-lg` | `@media (min-width: 64em)` | `64em` (1024px) |
+| `--uw-bp-xl` | `@media (min-width: 75em)` | `75em` (1200px) |
+
+UW Style uses `em` units for breakpoints in media queries (not CSS custom properties).
 
 ---
 
@@ -304,7 +451,7 @@ The old token names used in `brand-system.md` mapped directly:
 |----------|-------------------|
 | `--uw-heading-font` | `--uw-font-heading` |
 | `--uw-body-font` | `--uw-font-body` |
-| `--uw-quote-font` | `--uw-font-quote` |
+| `--uw-quote-font` | `--uw-font-quote-slide` (presentations) or `--uw-font-quote-web` (web) |
 | `--uw-code-font` | `--uw-font-code` |
 | `--uw-title-size` | `--uw-slide-title-size` |
 | `--uw-subtitle-size` | `--uw-slide-subtitle-size` |

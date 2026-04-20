@@ -1,245 +1,171 @@
-# UW-Madison Design System + Skills
+# UW-Madison Design System
 
-A Claude Code plugin with a curated UW-Madison design system and skills that use it to generate branded digital materials.
+The University of Wisconsin-Madison is a public R1 research university. Its visual identity is built on Badger Red (#c5050c), the Red Hat type family, the W Crest, and a set of hand-drawn illustrative elements that give the brand a distinctive, approachable personality. This repo codifies that identity as a structured design system: tokens, components, accessibility rules, and curated assets, all derived from the official [brand.wisc.edu](https://brand.wisc.edu/) guidelines and the UW Style CSS framework (v5.3.0). It is designed to be consumed by humans, AI tools, and code generators alike.
 
-## Overview
+## Start Here
 
-The **design system** (`brand/`) contains official UW-Madison brand assets, style specifications, the UW Style web template, and accessibility requirements. It is the shared foundation for any skill that produces UW-branded output.
+If you want to understand the system quickly, read these three files in order:
 
-The first skill built on this system is **`/uw-slides`**, which generates self-contained HTML slide presentations. More skills can be added to produce other branded materials (web pages, reports, emails, etc.) using the same design system.
+1. **[`brand/tokens.md`](brand/tokens.md)** - Every color, font, size, spacing, shadow, and breakpoint in the system. This is the single source of truth for all design values.
+2. **[`brand/components.md`](brand/components.md)** - Buttons, cards, tables, forms, navigation, header, footer, and utility classes extracted from the UW Style CSS framework. Shows how tokens become UI.
+3. **[`brand/brand-system.md`](brand/brand-system.md)** - Logo usage rules, link styling, and brand voice. The qualitative rules that tokens alone don't capture.
 
-### Design System
-
-- Official color palette, typography, and logo usage rules from [brand.wisc.edu](https://brand.wisc.edu/)
-- UW Style v5.3.0 web template (CSS framework, sample HTML, SVG icons)
-- 211 hand-drawn SVG icons, decorative elements, campus illustrations, and textures
-- WCAG 2.1 AA accessibility requirements
-- See [`brand/README.md`](brand/README.md) for details
-
-### UW-Slides Skill
-
-- **Self-contained output** - one `.html` file, works anywhere, works offline (fonts fall back to Arial)
-- **8 style presets** tailored to university use cases (lecture, research, conference, and more)
-- **10 slide types** covering academic needs (title, content, two-column, data chart, code, quote, image, references, section divider, closing)
-- **Brand-compliant by default** - colors, fonts, logos, and design elements all follow official guidelines
-- **Accessible** - keyboard navigation, touch/swipe, screen reader support, reduced motion, 4.5:1 contrast ratios
-- **PowerPoint import** - extract content from `.pptx` files and regenerate as branded HTML
-- **PDF export** - convert to PDF via Playwright for sharing or printing
-- **Web deployment** - deploy to Vercel with a single command
-- **Presenter notes** - hidden notes per slide, toggled with the N key
-
-## Installation
-
-### Option 1: Install as a Claude Code plugin
-
-From any project where you want to use the skill:
+## Where Things Live
 
 ```
-/install /path/to/skills
+brand/                          Design system (the core of this repo)
+  tokens.md                     Colors, typography, spacing, radius, shadows,
+                                breakpoints, animation, chart palette, theme
+                                tokens, UW Style CSS variable mapping
+  components.md                 UI component catalog (from UW Style CSS)
+  brand-system.md               Logo rules, link usage, brand voice and tone
+  accessibility.md              WCAG 2.1 AA requirements (UW Policy UW-519)
+  asset-registry.md             Curated asset catalog with categories and sizing
+  resource-guide.md             Full index of brand.wisc.edu downloads
+  assets/                       Ready-to-embed brand assets
+    uw-crest-color.svg            Full-color W Crest (light backgrounds)
+    uw-crest-1color.svg           1-color W Crest (dark backgrounds)
+    favicon-w.svg                 Browser tab favicon
+    icons/                        211 hand-drawn SVG icons
+    elements/                     36 decorative PNGs (18 red + 18 white)
+    illustrations/                20 campus building line drawings (PNG)
+    textures/                     5 background texture patterns (PNG)
+  web-template/                 Official UW Style v5.3.0 (upstream, do not modify)
+
+skills/uw-slides/               Example consumer: HTML slide generator
+  SKILL.md                        Orchestration and generation rules
+  references/                     Presets, slide types, best practices
+  assets/                         HTML template, base CSS
+
+scripts/                        Build and export utilities
+commands/                       Claude Code slash command entry points
+.claude-plugin/                 Plugin registration for Claude Code
 ```
 
-### Option 2: Reference the plugin directory
+## Design Principles
 
-```bash
-claude --plugin-dir /path/to/skills
+These principles are derived from the UW-Madison brand guidelines and govern decisions throughout the system.
+
+**Badger Red is sacred.** The value `#c5050c` is never modified, approximated, or replaced. It is the primary accent in every context. Dark Red (`#9B0000`) is the only acceptable darkened variant, and it is a separate defined token.
+
+**Accessibility is not optional.** All output must meet WCAG 2.1 AA (UW Policy UW-519). This means 4.5:1 contrast for normal text, 3:1 for large text, semantic HTML, keyboard operability, and respect for `prefers-reduced-motion`. The contrast ratio table in `tokens.md` pre-validates every brand color pairing.
+
+**Two fonts, no exceptions.** Red Hat Display for headings, Red Hat Text for body. Arial is the fallback, not a design choice. No other typefaces enter the system.
+
+**Light by default, dark when intentional.** The default theme is white backgrounds with dark text. Dark themes (black or red backgrounds) exist for specific contexts (executive presentations, event branding) and have their own semantic token overrides in `tokens.md`.
+
+**Hand-drawn elements are the personality.** Icons, illustrations, and decorative elements use a loose, hand-drawn style that distinguishes UW from other institutional brands. They are used sparingly (2-3 per surface) and always as decoration (`aria-hidden="true"`), never as the sole carrier of meaning.
+
+**One source of truth per fact.** Design values live in `tokens.md`. Logo rules live in `brand-system.md`. Accessibility requirements live in `accessibility.md`. Other files cross-reference rather than duplicate.
+
+## Token Naming
+
+All tokens use the convention `--uw-{category}-{name}` in kebab-case:
+
+```
+--uw-red              color
+--uw-font-heading     typography
+--uw-space-md         spacing
+--uw-radius-md        border radius
+--uw-shadow-sm        elevation
+--uw-bp-lg            breakpoint
+--uw-bg-primary       semantic/theme
 ```
 
-### Option 3: Clone to the default skills location
+The upstream UW Style CSS uses camelCase (`--uwRed`, `--uwDisplayFont`). The mapping between the two conventions is documented in `tokens.md` under "UW Style CSS Mapping." Do not modify the upstream CSS; use the mapping to translate.
 
-```bash
-git clone <repo-url> ~/.claude/skills/uw-slides
-```
+## Design System Boundary
 
-### Optional dependencies
+Everything in `brand/` is the design system. It defines the UW-Madison brand identity independent of any output format.
 
-These are only needed if you use the corresponding features:
+Everything outside `brand/` consumes the design system but is not part of it. The `skills/uw-slides/` directory, for example, adds presentation-specific layout (viewport locking, slide types, style presets) that should not be generalized to other contexts. The `uw resources/` directory (gitignored) contains the raw ~659MB download from brand.wisc.edu; the curated subset lives in `brand/assets/`.
 
-| Feature | Install Command |
-|---------|----------------|
-| PowerPoint import | `pip install python-pptx` |
-| PDF export | `npm install playwright && npx playwright install chromium` |
-| Web deployment | `npm i -g vercel` |
+When extracting brand rules for a new tool or context, start from `brand/` and ignore everything else.
 
-## Usage
+---
 
-Invoke the skill with `/uw-slides` followed by a description of what you want.
+## UW-Slides Skill
 
-### Create a presentation from a topic
+The first tool built on this design system. It generates self-contained HTML slide presentations that are brand-compliant by default.
+
+### Quick Start
 
 ```
 /uw-slides A 10-slide lecture on machine learning fundamentals for CS undergrads
 ```
 
-### Provide an outline
+### What It Produces
 
-```
-/uw-slides Create slides from this outline:
-1. Introduction to CRISPR
-2. How Cas9 finds its target
-3. Applications in agriculture
-4. Ethical considerations
-5. What's next
-```
+A single `.html` file containing all CSS, JS, and SVG inline. Works offline (fonts fall back to Arial). Opens in any browser.
 
-### Specify a preset
+### Presets
 
-```
-/uw-slides Research defense on protein folding, use the research preset
-```
+| Preset | Best For |
+|--------|----------|
+| `lecture` | Teaching, courses, classroom |
+| `research` | Thesis defense, research talks, academic conferences |
+| `conference` | Keynotes, invited talks, high-impact presentations |
+| `department` | Department overviews, reports, committee updates |
+| `recruitment` | Admissions, student outreach, open houses |
+| `data-driven` | Metrics, dashboards, performance reviews |
+| `executive` | Board meetings, leadership, donor events |
+| `event` | Celebrations, announcements, homecoming, commencement |
 
-### Convert a PowerPoint file
+### Controls
+
+| Action | Input |
+|--------|-------|
+| Next slide | Arrow Down, Arrow Right, Space, Scroll, Swipe Up |
+| Previous slide | Arrow Up, Arrow Left, Page Up, Swipe Down |
+| First / Last slide | Home / End |
+| Toggle presenter notes | N |
+| Print | Ctrl+P |
+| Jump to slide | Click nav dot, or add `#slide-3` to URL |
+
+### Other Modes
 
 ```
 /uw-slides Convert my-talk.pptx to branded HTML slides
 ```
 
-### Point to existing content
-
 ```
 /uw-slides Build a brief intro deck for the project at /path/to/my/project
 ```
 
-The skill will read your project's README and source files to understand what it does, then generate an appropriate presentation.
+### Export and Deploy
 
-## Style Presets
+| Feature | Command | Requires |
+|---------|---------|----------|
+| PDF export | `./scripts/export-pdf.sh presentation.html` | Playwright |
+| Web deploy | `./scripts/deploy.sh presentation.html my-talk` | Vercel CLI |
+| PowerPoint import | (automatic when given a .pptx file) | `python-pptx` |
 
-Each preset defines colors, layout, logo variant, and visual signature while staying within UW brand guidelines. If you don't specify a preset, the skill will choose one based on your content and audience.
+## Installation
 
-| Preset | Best For | Visual Style |
-|--------|----------|--------------|
-| `lecture` | Teaching, courses, classroom | Clean white, red mini-bars, generous spacing |
-| `research` | Thesis defense, research talks | White with dark red accents, slide numbers, data-friendly |
-| `conference` | Keynotes, invited talks | Bold red headings, strong brand presence |
-| `department` | Department overviews, reports | White with gray-blue accent, card-based layouts |
-| `recruitment` | Admissions, student outreach | Photo-forward with red overlays, high energy |
-| `data-driven` | Metrics, dashboards, reviews | Light gray background, chart color palette, tight layout |
-| `executive` | Board meetings, leadership, donors | Dark theme (#121212), premium feel, red + white accents |
-| `event` | Celebrations, announcements | Badger Red background, white text, yellow accent |
+### As a Claude Code plugin
 
-## Presentation Controls
+```
+/install /path/to/this/repo
+```
 
-Once the HTML file is open in a browser:
-
-| Action | Input |
-|--------|-------|
-| Next slide | Arrow Down, Arrow Right, Space, Scroll Down, Swipe Up |
-| Previous slide | Arrow Up, Arrow Left, Page Up, Swipe Down |
-| First slide | Home or Escape |
-| Last slide | End |
-| Toggle presenter notes | N |
-| Print / save as PDF | Ctrl+P (clean print styles applied automatically) |
-| Jump to slide | Click a navigation dot on the right edge |
-| Deep link | Add `#slide-3` to the URL to link directly to slide 3 |
-
-## How It Works
-
-The skill uses a **progressive disclosure architecture**. The main orchestration file (`SKILL.md`) is kept lean at around 300 lines and tells Claude which reference files to load at each stage. This keeps context usage efficient.
-
-### Workflow
-
-1. **Content understanding** - Claude analyzes your request, asks clarifying questions if needed (topic, audience, length, preset)
-2. **Preset selection** - picks the right visual style for your use case
-3. **Generation** - reads the HTML template, base CSS, preset CSS, slide type specs, and SVG logos, then assembles a complete HTML file
-4. **Delivery** - writes the file and opens it in your browser
-
-### What gets generated
-
-A single HTML file containing:
-- Font links to the [UW CDN](https://cdn.wisc.cloud) (primary) and Google Fonts (fallback)
-- All CSS inlined in one `<style>` block (viewport system, preset theme, slide-type styles)
-- The official W Crest logo as inline SVG markup
-- A `SlidePresentation` JavaScript class handling navigation, animations, and accessibility
-- Semantic HTML with proper ARIA attributes
-
-### Content rules (enforced automatically)
-
-These follow the [StratComm presentation best practices](https://brand.wisc.edu/resources/):
-- Title slides: max 8-word title, max 15-word subtitle
-- Content slides: max 5 bullets, each max 12 words
-- One idea per slide; if content overflows, it splits across slides
-- Minimum 24pt-equivalent text size
-- No all-caps headings
-- Every slide fits in one viewport (no scrolling)
-
-## Export and Deploy
-
-### Export to PDF
-
-Requires Playwright:
+### With the plugin-dir flag
 
 ```bash
-./scripts/export-pdf.sh path/to/presentation.html
+claude --plugin-dir /path/to/this/repo
 ```
 
-Produces a PDF with one page per slide at 1920x1080 resolution.
-
-### Deploy to Vercel
-
-Requires the Vercel CLI:
+### Clone to the default location
 
 ```bash
-./scripts/deploy.sh path/to/presentation.html my-talk
+git clone <repo-url> ~/.claude/skills/uw-design-system
 ```
 
-Deploys the presentation as a static site and returns a shareable URL.
+## Source
 
-## Project Structure
-
-```
-.claude-plugin/
-  plugin.json                          # Plugin manifest (name, version, description)
-brand/                                 # UW-Madison Design System (shared)
-  README.md                            # Design system documentation
-  brand-system.md                      # Colors, typography, logo rules, voice
-  accessibility.md                     # WCAG 2.1 AA requirements, ARIA patterns
-  asset-registry.md                    # Catalog of all brand assets
-  resource-guide.md                    # Index of official UW brand resources
-  web-template/                        # Official UW Style v5.3.0
-    index.html                         # Sample page with all base element styles
-    css/uw-style.css                   # Full CSS framework with design tokens
-    js/_uw-style.min.js                # Header, menus, search JS
-    images/                            # Crest SVG, icon sprite sheet, favicons
-  assets/
-    uw-crest-color.svg                 # Full-color W Crest (light backgrounds)
-    uw-crest-1color.svg                # 1-color W Crest (dark backgrounds)
-    favicon-w.svg                      # W favicon for browser tab
-    icons/                             # 211 hand-drawn SVG icons
-    elements/                          # Decorative hand-drawn elements (PNG)
-    illustrations/                     # Campus building line drawings (PNG)
-    textures/                          # Background texture patterns (PNG)
-commands/
-  uw-slides.md                         # /uw-slides slash command entry point
-skills/uw-slides/                      # Slide generation skill
-  SKILL.md                             # Main orchestration file
-  references/
-    style-presets.md                   # CSS definitions for all 8 presets
-    slide-types.md                     # HTML structure + rules for 10 slide types
-    best-practices.md                  # StratComm presentation guidelines
-    delivery-guide.md                  # Accessible delivery practices
-  assets/
-    html-template.md                   # HTML boilerplate + SlidePresentation JS class
-    viewport-base.css                  # Base CSS: viewport lock, scroll-snap, animations
-scripts/
-  open-presentation.sh                 # Open HTML in default browser
-  extract-pptx.py                      # Extract content from PowerPoint files
-  export-pdf.sh                        # Export to PDF via Playwright
-  deploy.sh                            # Deploy to Vercel
-uw resources/                          # Raw UW brand downloads (gitignored, not part of plugin)
-```
-
-## Brand Compliance
-
-All generated presentations adhere to these rules from the [UW-Madison brand guidelines](https://brand.wisc.edu/):
-
-- **Colors** - Badger Red `#c5050c` as primary accent; official secondary palette (`#9B0000`, `#e1e5e7`, `#121212`); accent colors used sparingly
-- **Typography** - Red Hat Display for headings, Red Hat Text for body, loaded from the official UW font CDN (`cdn.wisc.cloud`)
-- **Logo** - Official W Crest SVG embedded inline; positioned upper-right per brand templates; full-color on light, white on dark backgrounds; clear space maintained
-- **Mini-bar** - The signature red bar element (`#c5050c`, 1.5em wide, 0.2em tall) appears above slide headings, matching the official `uw-style.css` implementation
-- **Accessibility** - 4.5:1 minimum contrast ratio, keyboard navigation, `prefers-reduced-motion` support, semantic HTML, ARIA landmarks
-- **Content** - Per StratComm guidelines: concise titles, limited text per slide, no all-caps, no distracting transitions
+All brand assets from [brand.wisc.edu/resources](https://brand.wisc.edu/resources/), downloaded April 9, 2026. UW Style CSS framework v5.3.0 maintained by University Marketing.
 
 ## Credits
 
 - Brand guidelines and assets: [UW-Madison Brand](https://brand.wisc.edu/)
 - Presentation best practices: UW-Madison Strategic Communications
-- Presentation architecture inspired by: [frontend-slides](https://github.com/zarazhangrui/frontend-slides) by zarazhangrui
+- Slide architecture inspired by: [frontend-slides](https://github.com/zarazhangrui/frontend-slides) by zarazhangrui

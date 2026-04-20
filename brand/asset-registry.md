@@ -1,6 +1,6 @@
 # Brand Asset Registry
 
-This file catalogs all brand assets available for embedding in presentations. Assets live in `assets/brand/` and are embedded as base64 data URIs to keep the HTML self-contained.
+This file catalogs all brand assets available for embedding in presentations. Assets live in `assets/` and are embedded as base64 data URIs to keep the HTML self-contained.
 
 ## How to Embed Assets
 
@@ -32,7 +32,7 @@ background-image: url('data:image/png;base64,...');
 
 ## Icons (211 SVG icons)
 
-**Path:** `assets/brand/icons/icons-rgb-red_[name].svg`
+**Path:** `assets/icons/icons-rgb-red_[name].svg`
 **Format:** SVG, stroke-based, uses `#c5050c` stroke color
 **Typical size:** 500 bytes - 3KB per icon
 **Styling:** Override stroke color with CSS: `.slide-icon { stroke: #ffffff; }` for dark backgrounds
@@ -84,9 +84,12 @@ climate-change, recycle, solar-panel, water-drop, wind-turbine
 
 ## Graphic Elements (18 elements x 2 colors)
 
-**Path:** `assets/brand/elements/[red|white]/elements-rgb-[red|white]_[name].png`
+**Path (red):** `assets/elements/red/elements-rgb-red_[name].png`
+**Path (white):** `assets/elements/white/elements_[name]-rgb-white.png`
 **Format:** PNG with transparent background
 **Size:** 2KB - 58KB per element
+
+Note: Red and white files use different naming conventions (inherited from brand.wisc.edu download).
 
 Use **red** elements on light backgrounds, **white** elements on dark/red backgrounds.
 
@@ -126,7 +129,7 @@ Use **red** elements on light backgrounds, **white** elements on dark/red backgr
 
 ## Campus Illustrations (20 buildings)
 
-**Path:** `assets/brand/illustrations/illustrations-red_[name].png`
+**Path:** `assets/illustrations/illustrations-red_[name].png`
 **Format:** PNG with transparent background, red line art
 **Size:** 3KB - 8KB per illustration (very lightweight)
 
@@ -164,7 +167,7 @@ Use **red** elements on light backgrounds, **white** elements on dark/red backgr
 
 ## Textures (5 patterns)
 
-**Path:** `assets/brand/textures/textures-rgb-red_[name].png`
+**Path:** `assets/textures/textures-rgb-red_[name].png`
 **Format:** PNG, red on white
 **Size:** 95KB - 145KB per texture
 

@@ -14,9 +14,19 @@ The brand palette is defined in `tokens.md` under "Colors > Brand Palette." The 
 - Digital text requires minimum **4.5:1 contrast ratio** per WCAG standards
 - Never place black text on a red background (fails contrast)
 - Never modify the Badger Red value (`#c5050c`)
-- Links use `--uw-link-blue` (`#036796`) on light backgrounds, white on dark backgrounds
-
 See `tokens.md` for the full contrast ratio table with all pre-tested combinations.
+
+### Links
+
+Link color and behavior are defined by `--uw-link` and related tokens in `tokens.md` (under Theme Tokens > Links).
+
+Rules:
+- Use `--uw-link` (`#036796`) for interactive text on light backgrounds
+- On dark backgrounds, links use `#ffffff` (set automatically by dark theme tokens)
+- Links have no underline by default; underline appears on hover
+- Never use Badger Red (`--uw-red`) for link text. Red is reserved for brand accents and headings; using it for links creates confusion with error states and reduces the visual distinction between interactive and non-interactive text
+- Link text must meet 4.5:1 contrast ratio against its background (see contrast table in `tokens.md`)
+- Use descriptive link text ("View the full report"), not generic ("Click here")
 
 ## Typography
 
@@ -60,18 +70,7 @@ Key rules:
 
 ### The Mini-Bar
 
-The UW mini-bar is the signature design element. It appears as a small red bar above headings.
-
-```css
-.uw-mini-bar::before {
-  content: "";
-  display: block;
-  background-color: #c5050c;
-  width: 1.5em;
-  height: 0.2em;
-  margin-bottom: 0.375rem;
-}
-```
+The UW mini-bar is the signature design element. It appears as a small red bar above headings. See `tokens.md` (Mini-Bar section) for the CSS implementation.
 
 - Use above slide headings (h2, h3) on content slides
 - On section dividers (red background), switch to white: `.uw-mini-bar-white`

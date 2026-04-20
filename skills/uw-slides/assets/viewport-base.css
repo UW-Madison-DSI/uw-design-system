@@ -179,7 +179,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- Blockquote --- */
 .slide blockquote {
-  font-family: var(--uw-font-quote, 'Red Hat Display', sans-serif);
+  font-family: var(--uw-font-quote-slide, 'Red Hat Display', sans-serif);
   font-size: var(--uw-slide-quote-size, clamp(1.5rem, 3vw, 2.5rem));
   font-style: italic;
   font-weight: 400;
@@ -254,14 +254,14 @@ h1, h2, h3, h4, h5, h6 {
 .bar-label {
   position: absolute;
   bottom: -2em;
-  font-size: var(--uw-slide-caption-size, clamp(0.75rem, 1vw, 0.875rem));
+  font-size: var(--uw-slide-caption-size, clamp(0.875rem, 1.2vw, 1rem));
   white-space: nowrap;
 }
 .bar-value {
   position: absolute;
   top: -1.8em;
   font-weight: 700;
-  font-size: var(--uw-slide-caption-size, clamp(0.75rem, 1vw, 0.875rem));
+  font-size: var(--uw-slide-caption-size, clamp(0.875rem, 1.2vw, 1rem));
 }
 
 /* --- Table Styles --- */
