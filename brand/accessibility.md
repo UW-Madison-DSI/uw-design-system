@@ -11,7 +11,7 @@ Reference: [UW-Madison Digital Accessibility](https://accessible.wisc.edu/) | [C
 - Minimum **4.5:1** contrast ratio for normal text (under 18pt or under 14pt bold)
 - Minimum **3:1** for large text (18pt+ or 14pt+ bold)
 - Minimum **3:1** for UI components and graphical objects (borders, icons, form controls)
-- See the precomputed contrast ratio table in `brand-system.md` for UW brand color pairings
+- See the precomputed contrast ratio table in `tokens.md` (under Colors > Contrast Ratios) for UW brand color pairings
 - Test any custom color combinations before using them
 - Never place red text on dark backgrounds (fails contrast)
 - Never place light gray text on white backgrounds (fails contrast)

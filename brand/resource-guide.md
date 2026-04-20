@@ -1,6 +1,8 @@
 # UW-Madison Brand Resource Guide
 
-This directory contains official UW-Madison brand assets downloaded from [brand.wisc.edu/resources](https://brand.wisc.edu/resources/). All files are in RGB color mode at 72 PPI, intended for digital/screen use (not print).
+This documents all official UW-Madison brand resources available at [brand.wisc.edu/resources](https://brand.wisc.edu/resources/). All files are in RGB color mode at 72 PPI, intended for digital/screen use (not print).
+
+> **Curated vs. full set:** The `assets/` directory in this repo contains a curated subset: 211 red SVG icons, 18 red + 18 white PNG elements, 20 red PNG illustrations, and 5 red PNG textures. The full brand.wisc.edu download (in `uw resources/`, gitignored) includes all color variants (red, black, white) and additional formats (AI, PDF). The table below documents the full set; see `asset-registry.md` for what is actually available in `assets/`.
 
 ## Quick Reference
 
@@ -206,21 +208,9 @@ The official UW-Madison web template maintained by University Marketing. This is
 | `images/favicon-512x512.png` | Large favicon |
 | `README.md` | Template usage notes |
 
-### Key CSS Design Tokens (from `:root` in uw-style.css)
+### CSS Design Tokens
 
-```css
---uwRed: #c5050c;
---uwRedDark: #9B0000;
---uwGrayDark: #282728;
---uwGrayLight: #e1e5e7;
---uwGrayLightest: #f3f3f3;
---uwWhite: #ffffff;
---uwBlack: #121212;
---uwDisplayFont: Red Hat Display, sans-serif;
---uwTextFont: Red Hat Text, sans-serif;
-```
-
-Fonts load from `https://cdn.wisc.cloud/fonts/uw-rh/0.0.1/fonts.css`.
+UW Style CSS uses camelCase token names (e.g., `--uwRed`). See `tokens.md` for the canonical kebab-case names used by this design system and the full mapping table between the two conventions.
 
 ---
 

@@ -21,7 +21,7 @@ html {
 
 body {
   overflow-x: hidden;
-  font-family: var(--uw-body-font, 'Red Hat Text', sans-serif);
+  font-family: var(--uw-font-body, 'Red Hat Text', sans-serif);
   color: var(--uw-text-primary, #121212);
   background-color: var(--uw-bg-primary, #ffffff);
   -webkit-font-smoothing: antialiased;
@@ -88,33 +88,33 @@ body {
 
 /* --- Typography --- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--uw-heading-font, 'Red Hat Display', sans-serif);
+  font-family: var(--uw-font-heading, 'Red Hat Display', sans-serif);
   font-weight: 700;
   line-height: 1.2;
   color: var(--uw-heading-color, var(--uw-text-primary, #121212));
 }
 
 .slide-title {
-  font-size: var(--uw-title-size, clamp(2.5rem, 5vw, 4.5rem));
+  font-size: var(--uw-slide-title-size, clamp(2.5rem, 5vw, 4.5rem));
   font-weight: 700;
 }
 .slide-subtitle {
-  font-size: var(--uw-subtitle-size, clamp(1.25rem, 2.5vw, 2rem));
+  font-size: var(--uw-slide-subtitle-size, clamp(1.25rem, 2.5vw, 2rem));
   font-weight: 400;
   color: var(--uw-text-secondary, #4a4a4a);
 }
 .slide h2, .slide-heading {
-  font-size: var(--uw-h2-size, clamp(1.75rem, 3.5vw, 3rem));
+  font-size: var(--uw-slide-h2-size, clamp(1.75rem, 3.5vw, 3rem));
 }
 .slide h3 {
-  font-size: var(--uw-h3-size, clamp(1.375rem, 2.5vw, 2rem));
+  font-size: var(--uw-slide-h3-size, clamp(1.375rem, 2.5vw, 2rem));
 }
 .slide p, .slide li {
-  font-size: var(--uw-body-size, clamp(1.125rem, 1.8vw, 1.5rem));
+  font-size: var(--uw-slide-body-size, clamp(1.125rem, 1.8vw, 1.5rem));
   line-height: 1.6;
 }
 .slide .caption {
-  font-size: var(--uw-caption-size, clamp(0.875rem, 1.2vw, 1rem));
+  font-size: var(--uw-slide-caption-size, clamp(0.875rem, 1.2vw, 1rem));
   color: var(--uw-text-secondary, #4a4a4a);
 }
 
@@ -148,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
   content: counter(slide-counter);
   position: absolute;
   left: 0;
-  font-family: var(--uw-heading-font, 'Red Hat Display', sans-serif);
+  font-family: var(--uw-font-heading, 'Red Hat Display', sans-serif);
   font-weight: 700;
   color: var(--uw-accent, #c5050c);
 }
@@ -168,7 +168,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: clamp(1rem, 2vw, 2rem);
   border-radius: 8px;
   font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
-  font-size: var(--uw-code-size, clamp(0.85rem, 1.3vw, 1.1rem));
+  font-size: var(--uw-slide-code-size, clamp(0.85rem, 1.3vw, 1.1rem));
   line-height: 1.6;
   overflow-x: auto;
   tab-size: 2;
@@ -179,8 +179,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- Blockquote --- */
 .slide blockquote {
-  font-family: var(--uw-quote-font, 'Red Hat Display', sans-serif);
-  font-size: var(--uw-quote-size, clamp(1.5rem, 3vw, 2.5rem));
+  font-family: var(--uw-font-quote-slide, 'Red Hat Display', sans-serif);
+  font-size: var(--uw-slide-quote-size, clamp(1.5rem, 3vw, 2.5rem));
   font-style: italic;
   font-weight: 400;
   line-height: 1.4;
@@ -254,26 +254,26 @@ h1, h2, h3, h4, h5, h6 {
 .bar-label {
   position: absolute;
   bottom: -2em;
-  font-size: var(--uw-caption-size, clamp(0.75rem, 1vw, 0.875rem));
+  font-size: var(--uw-slide-caption-size, clamp(0.875rem, 1.2vw, 1rem));
   white-space: nowrap;
 }
 .bar-value {
   position: absolute;
   top: -1.8em;
   font-weight: 700;
-  font-size: var(--uw-caption-size, clamp(0.75rem, 1vw, 0.875rem));
+  font-size: var(--uw-slide-caption-size, clamp(0.875rem, 1.2vw, 1rem));
 }
 
 /* --- Table Styles --- */
 .slide table {
   width: 100%;
   border-collapse: collapse;
-  font-size: var(--uw-body-size, clamp(1rem, 1.5vw, 1.25rem));
+  font-size: var(--uw-slide-body-size, clamp(1rem, 1.5vw, 1.25rem));
 }
 .slide th {
   background-color: var(--uw-accent, #c5050c);
   color: #ffffff;
-  font-family: var(--uw-heading-font, 'Red Hat Display', sans-serif);
+  font-family: var(--uw-font-heading, 'Red Hat Display', sans-serif);
   font-weight: 600;
   text-align: left;
   padding: 0.75em 1em;

@@ -1,119 +1,44 @@
 # UW-Madison Brand System
 
-This file contains the official UW-Madison brand specifications for use in all branded digital materials. All values are sourced from the official UW Style CSS (v5.3.0) and brand.wisc.edu guidelines.
+Official UW-Madison brand specifications for all branded digital materials. Sourced from the UW Style CSS (v5.3.0) and [brand.wisc.edu](https://brand.wisc.edu/) guidelines.
+
+For the canonical token definitions (CSS custom properties, values, and mappings to UW Style CSS), see **[`tokens.md`](tokens.md)**.
 
 ## Color Palette
 
-### CSS Custom Properties
+The brand palette is defined in `tokens.md` under "Colors > Brand Palette." The key rules for using those colors:
 
-```css
-:root {
-  /* Primary */
-  --uw-red: #c5050c;          /* Badger Red - Pantone 200 C */
-  --uw-white: #ffffff;
-
-  /* Secondary */
-  --uw-red-dark: #9B0000;     /* Dark Red */
-  --uw-gray-dark: #282728;    /* Dark Charcoal */
-  --uw-gray-light: #e1e5e7;   /* Light Gray */
-  --uw-gray-lightest: #f3f3f3; /* Near White */
-  --uw-black: #121212;         /* Rich Black (NOT pure #000) */
-
-  /* Accent (use sparingly) */
-  --uw-yellow: #FFB500;        /* Warm Yellow (from CMYK conversion) */
-  --uw-gray-blue: #6B8F99;    /* Medium Gray Blue */
-  --uw-blue: #385966;          /* Dark Blue */
-
-  /* Derived from brand materials */
-  --uw-cream: #f6ede4;         /* From crest gradient */
-  --uw-gold: #d4ac7f;          /* From crest gradient */
-}
-```
-
-### Color Usage Rules
-
-- **Badger Red and White** are the foundation of all branded materials
+- **Badger Red (`--uw-red`) and White** are the foundation of all branded materials
 - Secondary colors pair seamlessly with Badger Red and White
 - Accent colors (yellow, gray-blue, blue) should be used in moderation
 - Digital text requires minimum **4.5:1 contrast ratio** per WCAG standards
-- Never place black text on a red background (notoriously difficult to read)
-- Never modify the Badger Red value
+- Never place black text on a red background (fails contrast)
+- Never modify the Badger Red value (`#c5050c`)
+See `tokens.md` for the full contrast ratio table with all pre-tested combinations.
 
-### Precomputed Contrast Ratios (text on background)
+### Links
 
-| Text Color | Background | Ratio | Pass AA? |
-|-----------|-----------|-------|----------|
-| #121212 (black) | #ffffff (white) | 17.4:1 | Yes |
-| #121212 (black) | #f3f3f3 (lightest gray) | 14.8:1 | Yes |
-| #121212 (black) | #e1e5e7 (light gray) | 12.1:1 | Yes |
-| #c5050c (red) | #ffffff (white) | 5.9:1 | Yes |
-| #9B0000 (dark red) | #ffffff (white) | 8.0:1 | Yes |
-| #ffffff (white) | #c5050c (red) | 5.9:1 | Yes |
-| #ffffff (white) | #9B0000 (dark red) | 8.0:1 | Yes |
-| #ffffff (white) | #121212 (black) | 17.4:1 | Yes |
-| #ffffff (white) | #282728 (dark charcoal) | 14.3:1 | Yes |
-| #FFB500 (yellow) | #121212 (black) | 9.6:1 | Yes |
-| #121212 (black) | #FFB500 (yellow) | 9.6:1 | Yes |
-| #c5050c (red) | #121212 (black) | 2.9:1 | NO |
-| #c5050c (red) | #e1e5e7 (light gray) | 2.1:1 | NO |
+Link color and behavior are defined by `--uw-link` and related tokens in `tokens.md` (under Theme Tokens > Links).
 
-**Key takeaways for presets:**
-- White text on Badger Red: 5.9:1 (passes)
-- White text on Dark Red: 8.0:1 (passes)
-- White text on Black: 17.4:1 (passes)
-- Red text on White: 5.9:1 (passes)
-- Red text on Black: 2.9:1 (FAILS - do not use)
-- Red text on Light Gray: 2.1:1 (FAILS - do not use)
+Rules:
+- Use `--uw-link` (`#036796`) for interactive text on light backgrounds
+- On dark backgrounds, links use `#ffffff` (set automatically by dark theme tokens)
+- Links have no underline by default; underline appears on hover
+- Never use Badger Red (`--uw-red`) for link text. Red is reserved for brand accents and headings; using it for links creates confusion with error states and reduces the visual distinction between interactive and non-interactive text
+- Link text must meet 4.5:1 contrast ratio against its background (see contrast table in `tokens.md`)
+- Use descriptive link text ("View the full report"), not generic ("Click here")
 
 ## Typography
 
-### Font Families
+Font families, weights, loading strategy, and type scales (web and presentation) are defined in `tokens.md` under "Typography."
 
-```css
-:root {
-  --uw-heading-font: 'Red Hat Display', Arial, sans-serif;
-  --uw-body-font: 'Red Hat Text', Arial, sans-serif;
-  --uw-quote-font: 'Red Hat Display', Arial, sans-serif;
-  --uw-code-font: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
-}
-```
+Key rules:
 
-- **Red Hat Display** (geometric sans serif): Headings, headlines, subheadings, large sizes. Carries brand personality. Weights: 400, 500, 600, 700.
-- **Red Hat Text** (sans serif): Body copy, paragraphs, small sizes. Optimized for legibility. Weights: 400, 400i, 700.
+- **Red Hat Display** (geometric sans-serif): Headings, headlines, subheadings, large sizes. Carries brand personality. Weights: 400, 500, 600, 700.
+- **Red Hat Text** (sans-serif): Body copy, paragraphs, UI text, small sizes. Optimized for legibility. Weights: 400, 400i, 700.
 - **Arial**: Official fallback for both. Used when brand fonts are unavailable.
-
-### Font Loading
-
-Primary source (UW CDN, has both families pre-configured):
-```html
-<link rel="stylesheet" href="https://cdn.wisc.cloud/fonts/uw-rh/0.0.1/fonts.css">
-```
-
-Fallback (Google Fonts):
-```html
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&family=Red+Hat+Text:ital,wght@0,400;0,700;1,400&display=swap">
-```
-
-Include both links. The browser will use whichever loads first. If both fail (offline), Arial takes over.
-
-### Typography Scale (Responsive)
-
-From the official UW Style CSS, adapted for presentations (larger base):
-
-```css
-:root {
-  --uw-title-size: clamp(2.5rem, 5vw, 4.5rem);       /* Display / title slides */
-  --uw-subtitle-size: clamp(1.25rem, 2.5vw, 2rem);    /* Subtitles */
-  --uw-h2-size: clamp(1.75rem, 3.5vw, 3rem);          /* Slide headings */
-  --uw-h3-size: clamp(1.375rem, 2.5vw, 2rem);         /* Sub-headings */
-  --uw-body-size: clamp(1.125rem, 1.8vw, 1.5rem);     /* Body text */
-  --uw-caption-size: clamp(0.875rem, 1.2vw, 1rem);    /* Captions, labels */
-  --uw-code-size: clamp(0.85rem, 1.3vw, 1.1rem);      /* Code blocks */
-  --uw-quote-size: clamp(1.5rem, 3vw, 2.5rem);        /* Pull quotes */
-}
-```
-
-**Minimum readable size**: Per StratComm best practices, no text smaller than 24pt equivalent on projected slides. The `clamp()` values ensure this on standard projector resolutions.
+- Two type scales exist: one for web (`--uw-text-*`) and one for projected slides (`--uw-slide-*-size`). Use the appropriate scale for the output format.
+- Per StratComm best practices, no text smaller than 24pt equivalent on projected slides.
 
 ## Logo Usage
 
@@ -145,18 +70,7 @@ From the official UW Style CSS, adapted for presentations (larger base):
 
 ### The Mini-Bar
 
-The UW mini-bar is the signature design element. It appears as a small red bar above headings.
-
-```css
-.uw-mini-bar::before {
-  content: "";
-  display: block;
-  background-color: #c5050c;
-  width: 1.5em;
-  height: 0.2em;
-  margin-bottom: 0.375rem;
-}
-```
+The UW mini-bar is the signature design element. It appears as a small red bar above headings. See `tokens.md` (Mini-Bar section) for the CSS implementation.
 
 - Use above slide headings (h2, h3) on content slides
 - On section dividers (red background), switch to white: `.uw-mini-bar-white`

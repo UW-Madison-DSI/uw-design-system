@@ -20,8 +20,8 @@ Clean, high-readability, classroom-appropriate. Optimized for projection in lect
   --uw-accent: #c5050c;
   --uw-accent-secondary: #9B0000;
   --uw-card-bg: #f3f3f3;
-  --uw-heading-font: 'Red Hat Display', Arial, sans-serif;
-  --uw-body-font: 'Red Hat Text', Arial, sans-serif;
+  --uw-font-heading: 'Red Hat Display', Arial, sans-serif;
+  --uw-font-body: 'Red Hat Text', Arial, sans-serif;
   --uw-slide-padding: clamp(2.5rem, 5vw, 5rem);
   --uw-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -68,8 +68,8 @@ Structured, scholarly, data-friendly. Suited for thesis defenses, research group
   --uw-accent: #9B0000;
   --uw-accent-secondary: #c5050c;
   --uw-card-bg: #f7f8f9;
-  --uw-heading-font: 'Red Hat Display', Arial, sans-serif;
-  --uw-body-font: 'Red Hat Text', Arial, sans-serif;
+  --uw-font-heading: 'Red Hat Display', Arial, sans-serif;
+  --uw-font-body: 'Red Hat Text', Arial, sans-serif;
   --uw-slide-padding: clamp(2.5rem, 5vw, 5rem);
   --uw-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -118,8 +118,8 @@ Bold, confident, stage-ready. For keynotes, invited talks, and conference presen
   --uw-accent: #c5050c;
   --uw-accent-secondary: #9B0000;
   --uw-card-bg: #f3f3f3;
-  --uw-heading-font: 'Red Hat Display', Arial, sans-serif;
-  --uw-body-font: 'Red Hat Text', Arial, sans-serif;
+  --uw-font-heading: 'Red Hat Display', Arial, sans-serif;
+  --uw-font-body: 'Red Hat Text', Arial, sans-serif;
   --uw-slide-padding: clamp(3rem, 5vw, 5rem);
   --uw-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -167,8 +167,8 @@ Professional, balanced, informational. For department overviews, annual reports,
   --uw-accent: #c5050c;
   --uw-accent-secondary: #6B8F99;
   --uw-card-bg: #f3f3f3;
-  --uw-heading-font: 'Red Hat Display', Arial, sans-serif;
-  --uw-body-font: 'Red Hat Text', Arial, sans-serif;
+  --uw-font-heading: 'Red Hat Display', Arial, sans-serif;
+  --uw-font-body: 'Red Hat Text', Arial, sans-serif;
   --uw-slide-padding: clamp(2.5rem, 4vw, 4rem);
   --uw-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -216,8 +216,8 @@ Energetic, aspirational, photo-forward. For admissions events, student recruitin
   --uw-accent: #c5050c;
   --uw-accent-secondary: #FFB500;
   --uw-card-bg: rgba(197, 5, 12, 0.9);
-  --uw-heading-font: 'Red Hat Display', Arial, sans-serif;
-  --uw-body-font: 'Red Hat Text', Arial, sans-serif;
+  --uw-font-heading: 'Red Hat Display', Arial, sans-serif;
+  --uw-font-body: 'Red Hat Text', Arial, sans-serif;
   --uw-slide-padding: clamp(2rem, 4vw, 4rem);
   --uw-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -267,8 +267,8 @@ Clean, analytical, metrics-focused. For data presentations, dashboards, performa
   --uw-accent: #c5050c;
   --uw-accent-secondary: #385966;
   --uw-card-bg: #ffffff;
-  --uw-heading-font: 'Red Hat Display', Arial, sans-serif;
-  --uw-body-font: 'Red Hat Text', Arial, sans-serif;
+  --uw-font-heading: 'Red Hat Display', Arial, sans-serif;
+  --uw-font-body: 'Red Hat Text', Arial, sans-serif;
   --uw-slide-padding: clamp(2rem, 4vw, 3.5rem);
   --uw-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -330,8 +330,8 @@ Premium, polished, authoritative. For leadership presentations, board meetings, 
   --uw-accent-secondary: #FFB500;
   --uw-card-bg: rgba(255, 255, 255, 0.08);
   --uw-gray-light: #333333;
-  --uw-heading-font: 'Red Hat Display', Arial, sans-serif;
-  --uw-body-font: 'Red Hat Text', Arial, sans-serif;
+  --uw-font-heading: 'Red Hat Display', Arial, sans-serif;
+  --uw-font-body: 'Red Hat Text', Arial, sans-serif;
   --uw-slide-padding: clamp(3rem, 5vw, 5rem);
   --uw-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -400,8 +400,8 @@ Celebratory, vibrant, spirited. For event announcements, ceremonies, homecoming,
   --uw-accent: #FFB500;
   --uw-accent-secondary: #ffffff;
   --uw-card-bg: rgba(255, 255, 255, 0.15);
-  --uw-heading-font: 'Red Hat Display', Arial, sans-serif;
-  --uw-body-font: 'Red Hat Text', Arial, sans-serif;
+  --uw-font-heading: 'Red Hat Display', Arial, sans-serif;
+  --uw-font-body: 'Red Hat Text', Arial, sans-serif;
   --uw-slide-padding: clamp(2.5rem, 5vw, 5rem);
   --uw-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }

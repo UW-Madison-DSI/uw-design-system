@@ -41,12 +41,12 @@ The opening slide. Sets the tone, identifies the presentation, and establishes b
   margin-top: clamp(1.5rem, 3vw, 3rem);
 }
 .slide-author {
-  font-family: var(--uw-heading-font);
+  font-family: var(--uw-font-heading);
   font-weight: 600;
-  font-size: var(--uw-body-size);
+  font-size: var(--uw-slide-body-size);
 }
 .slide-date {
-  font-size: var(--uw-caption-size);
+  font-size: var(--uw-slide-caption-size);
   color: var(--uw-text-secondary);
 }
 ```
@@ -85,7 +85,7 @@ A visual break between major sections. Bold, simple, high-impact.
   align-items: flex-start;
 }
 .slide--divider .slide-heading {
-  font-size: var(--uw-title-size);
+  font-size: var(--uw-slide-title-size);
   color: #ffffff;
 }
 .slide--divider .slide-subtitle {
@@ -449,7 +449,7 @@ For citations, bibliography, and source attribution. Smaller text, efficient lay
 ### CSS
 ```css
 .slide--references .references-list {
-  font-size: var(--uw-caption-size);
+  font-size: var(--uw-slide-caption-size);
   line-height: 1.6;
 }
 .slide--references ol {
@@ -457,7 +457,7 @@ For citations, bibliography, and source attribution. Smaller text, efficient lay
   padding-left: 2em;
 }
 .slide--references li {
-  font-size: var(--uw-caption-size);
+  font-size: var(--uw-slide-caption-size);
   margin-bottom: 0.5em;
 }
 ```
@@ -503,7 +503,7 @@ The final slide. Thank you, questions, or contact information. Re-establishes br
 }
 .closing-contact {
   margin-top: clamp(1.5rem, 3vw, 3rem);
-  font-size: var(--uw-body-size);
+  font-size: var(--uw-slide-body-size);
 }
 .closing-contact p {
   margin-bottom: 0.25em;
@@ -522,14 +522,14 @@ The final slide. Thank you, questions, or contact information. Re-establishes br
 3. **Alt text**: Every `<img>` must have descriptive `alt` text.
 4. **Heading hierarchy**: Title slides use `<h1>`, all other slides use `<h2>` for their main heading, `<h3>` for sub-headings.
 5. **No all-caps**: Use title case or sentence case for headings (per accessibility and StratComm guidelines).
-6. **Presenter notes**: Add `data-notes="..."` to any `<section class="slide">` for speaker notes (toggled with N key).
+6. **Presenter notes**: Add `data-notes="..."` to every `<section class="slide">`. **REQUIRED** on slides with charts, images, diagrams, or code (must describe what the visual shows in plain language). **Recommended** on other content slides (add speaker context beyond what's on the slide). Toggled with N key.
 7. **Semantic HTML**: Use `<section>`, `<h2>`, `<ul>`, `<blockquote>`, `<table>`, `<cite>` appropriately.
 
 ---
 
 ## Decorative Brand Elements
 
-Brand assets from `assets/brand/` can be embedded to add visual personality. See `references/asset-registry.md` for the full catalog. All decorative images use `aria-hidden="true"` and `alt=""`.
+Brand assets from `../../brand/assets/` can be embedded to add visual personality. See `../../brand/asset-registry.md` for the full catalog. All decorative images use `aria-hidden="true"` and `alt=""`.
 
 ### Embedding Method
 
@@ -645,7 +645,7 @@ When a content slide uses cards or a feature grid, add contextually relevant SVG
 ```html
 <div class="card-grid stagger">
   <div class="card icon-card">
-    <svg class="slide-icon"><!-- inline SVG from assets/brand/icons/ --></svg>
+    <svg class="slide-icon"><!-- inline SVG from ../../brand/assets/icons/ --></svg>
     <div>
       <h3>Feature Title</h3>
       <p>Brief description of the feature.</p>
