@@ -1,6 +1,6 @@
 # UW-Madison Brand System
 
-This file contains the official UW-Madison brand specifications for use in generated presentations. All values are sourced from the official UW Style CSS (v5.3.0) and brand.wisc.edu guidelines.
+This file contains the official UW-Madison brand specifications for use in all branded digital materials. All values are sourced from the official UW Style CSS (v5.3.0) and brand.wisc.edu guidelines.
 
 ## Color Palette
 
