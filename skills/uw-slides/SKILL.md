@@ -51,8 +51,8 @@ Load these files and follow their specifications:
 2. **`assets/viewport-base.css`** - The base CSS (paste it into the `<style>` block)
 3. **`references/style-presets.md`** - The selected preset's CSS variables and overrides
 4. **`references/slide-types.md`** - HTML structure for each slide type used
-5. **`references/brand-system.md`** - Color palette, typography, logo rules
-6. **`assets/uw-crest-color.svg`** or **`assets/uw-crest-1color.svg`** - Read the SVG and embed inline
+5. **`../../brand/brand-system.md`** - Color palette, typography, logo rules
+6. **`../../brand/assets/uw-crest-color.svg`** or **`../../brand/assets/uw-crest-1color.svg`** - Read the SVG and embed inline
 
 ### Generation Rules
 
@@ -80,14 +80,14 @@ Load these files and follow their specifications:
 - No black text on red backgrounds
 
 **Decorative elements (adds visual personality):**
-- Load `references/asset-registry.md` to see what brand assets are available
+- Load `../../brand/asset-registry.md` to see what brand assets are available
 - Follow the decoration rules in the selected preset (see `references/style-presets.md`)
 - Follow the per-slide-type rules in `references/slide-types.md` (Decorative Brand Elements section)
-- Read the specific asset files from `assets/brand/` and embed as base64 data URIs for PNGs, or inline SVG markup for icons
+- Read the specific asset files from `../../brand/assets/` and embed as base64 data URIs for PNGs, or inline SVG markup for icons
 - Use `class="decorative"` with `aria-hidden="true"` and `alt=""` for all decorative images
 - CSS classes for positioning: `decorative--watermark`, `decorative--corner-br`, `decorative--corner-tl`, `decorative--texture`, `decorative--illustration`
 - Budget: max 2-3 decorative elements per slide, max 1 texture overlay per deck, watermarks at 7-10% opacity
-- Pick SVG icons contextually (see categorized list in asset-registry.md) for card layouts on content slides
+- Pick SVG icons contextually (see categorized list in `../../brand/asset-registry.md`) for card layouts on content slides
 
 **Technical:**
 - Single self-contained `.html` file
@@ -97,7 +97,7 @@ Load these files and follow their specifications:
 - SVG icons embedded as inline `<svg>` markup
 - PNG assets (elements, illustrations, textures) embedded as `data:image/png;base64,...` data URIs
 - Font links to both `cdn.wisc.cloud` and Google Fonts (dual fallback)
-- Favicon as data URI from `favicon-w.svg`
+- Favicon as data URI from `../../brand/assets/favicon-w.svg`
 - Every `<img>` has descriptive `alt` text
 - `aria-hidden="true"` on decorative elements (logos, icons, watermarks, accents)
 - `data-notes="..."` on slides where presenter notes would be helpful
@@ -111,7 +111,7 @@ Load these files and follow their specifications:
 - For images: notes describe what is depicted and why it matters
 - For code: notes summarize what the code does in plain language
 - Notes on regular content slides should add context for the speaker, not just repeat what's already on the slide
-- See `references/accessibility.md` (Content Accessibility section) for full guidance and `references/best-practices.md` rules 15-17
+- See `../../brand/accessibility.md` (Content Accessibility section) for full guidance and `references/best-practices.md` rules 15-17
 
 ### File Output
 
@@ -175,19 +175,23 @@ If the user asks:
 
 ## Resource Files
 Load on-demand during generation:
-- `references/brand-system.md` - Full brand specification
+
+### From design system (`../../brand/`)
+- `../../brand/brand-system.md` - Full brand specification
+- `../../brand/accessibility.md` - WCAG compliance details + UW IT content accessibility guidelines (UW-519)
+- `../../brand/asset-registry.md` - Catalog of all brand assets (icons, elements, illustrations, textures)
+- `../../brand/assets/uw-crest-color.svg` - Full-color W Crest
+- `../../brand/assets/uw-crest-1color.svg` - 1-color W Crest
+- `../../brand/assets/favicon-w.svg` - Favicon SVG
+- `../../brand/assets/icons/` - 211 SVG icons (read specific ones based on content)
+- `../../brand/assets/elements/[red|white]/` - Hand-drawn decorative elements (PNG)
+- `../../brand/assets/illustrations/` - Campus building line drawings (PNG)
+- `../../brand/assets/textures/` - Background texture patterns (PNG)
+
+### Slide-specific (`./`)
 - `references/style-presets.md` - CSS for all 8 presets (includes decoration rules per preset)
 - `references/slide-types.md` - HTML structure per slide type (includes decoration placement rules)
-- `references/asset-registry.md` - Catalog of all brand assets (icons, elements, illustrations, textures)
 - `references/best-practices.md` - Content rules from StratComm (includes accessibility content rules 15-17)
-- `references/accessibility.md` - WCAG compliance details + UW IT content accessibility guidelines (UW-519)
 - `references/delivery-guide.md` - Accessible presentation delivery practices (surfaced to user in Phase 4)
 - `assets/html-template.md` - HTML boilerplate + JS
 - `assets/viewport-base.css` - Base CSS
-- `assets/uw-crest-color.svg` - Full-color W Crest
-- `assets/uw-crest-1color.svg` - 1-color W Crest
-- `assets/favicon-w.svg` - Favicon SVG
-- `assets/brand/icons/` - 211 SVG icons (read specific ones based on content)
-- `assets/brand/elements/[red|white]/` - Hand-drawn decorative elements (PNG)
-- `assets/brand/illustrations/` - Campus building line drawings (PNG)
-- `assets/brand/textures/` - Background texture patterns (PNG)

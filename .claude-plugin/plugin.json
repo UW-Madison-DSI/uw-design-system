@@ -1,7 +1,7 @@
 {
-  "name": "uw-slides",
-  "version": "1.0.0",
-  "description": "Generate UW-Madison branded HTML slide presentations with proper brand identity, colors, typography, and logo usage",
+  "name": "uw-design-system",
+  "version": "1.1.0",
+  "description": "UW-Madison design system and branded content generation skills (slides, web pages, and more)",
   "author": {
     "name": "Steve Wangen"
   },

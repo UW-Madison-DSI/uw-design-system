@@ -1,14 +1,22 @@
-# UW-Slides
+# UW-Madison Design System + Skills
 
-A Claude Code plugin that generates self-contained, UW-Madison branded HTML slide presentations from a topic, outline, or PowerPoint file.
+A Claude Code plugin with a curated UW-Madison design system and skills that use it to generate branded digital materials.
 
 ## Overview
 
-`/uw-slides` produces a single `.html` file with everything inlined: CSS, JavaScript, SVG logos, and fonts. No build step, no dependencies, no frameworks. Open it in any browser and present.
+The **design system** (`brand/`) contains official UW-Madison brand assets, style specifications, the UW Style web template, and accessibility requirements. It is the shared foundation for any skill that produces UW-branded output.
 
-Every presentation automatically conforms to the [UW-Madison brand guidelines](https://brand.wisc.edu/): Badger Red color palette, Red Hat Display/Text typography, the official W Crest logo, the signature mini-bar design element, and WCAG 2.1 AA accessibility standards.
+The first skill built on this system is **`/uw-slides`**, which generates self-contained HTML slide presentations. More skills can be added to produce other branded materials (web pages, reports, emails, etc.) using the same design system.
 
-### Features
+### Design System
+
+- Official color palette, typography, and logo usage rules from [brand.wisc.edu](https://brand.wisc.edu/)
+- UW Style v5.3.0 web template (CSS framework, sample HTML, SVG icons)
+- 211 hand-drawn SVG icons, decorative elements, campus illustrations, and textures
+- WCAG 2.1 AA accessibility requirements
+- See [`brand/README.md`](brand/README.md) for details
+
+### UW-Slides Skill
 
 - **Self-contained output** - one `.html` file, works anywhere, works offline (fonts fall back to Arial)
 - **8 style presets** tailored to university use cases (lecture, research, conference, and more)
@@ -178,31 +186,45 @@ Deploys the presentation as a static site and returns a shareable URL.
 ## Project Structure
 
 ```
-skills/
-  .claude-plugin/
-    plugin.json                        # Plugin manifest (name, version, description)
-  commands/
-    uw-slides.md                       # /uw-slides slash command entry point
-  skills/uw-slides/
-    SKILL.md                           # Main orchestration file ("the brain")
-    references/
-      brand-system.md                  # Full brand spec: colors, fonts, logo rules, voice
-      style-presets.md                 # CSS definitions for all 8 presets
-      slide-types.md                   # HTML structure + rules for all 10 slide types
-      best-practices.md                # StratComm content guidelines
-      accessibility.md                 # WCAG compliance rules and patterns
-    assets/
-      html-template.md                 # HTML boilerplate + SlidePresentation JS class
-      viewport-base.css                # Base CSS: viewport lock, scroll-snap, animations
-      uw-crest-color.svg               # Official full-color W Crest (light backgrounds)
-      uw-crest-1color.svg              # Official 1-color W Crest (dark backgrounds)
-      favicon-w.svg                    # W favicon for the browser tab
-  scripts/
-    open-presentation.sh               # Open HTML in default browser (macOS/Linux)
-    extract-pptx.py                    # Extract content from PowerPoint files
-    export-pdf.sh                      # Export to PDF via Playwright
-    deploy.sh                          # Deploy to Vercel
-  uw resources/                        # Official UW brand asset library (not modified)
+.claude-plugin/
+  plugin.json                          # Plugin manifest (name, version, description)
+brand/                                 # UW-Madison Design System (shared)
+  README.md                            # Design system documentation
+  brand-system.md                      # Colors, typography, logo rules, voice
+  accessibility.md                     # WCAG 2.1 AA requirements, ARIA patterns
+  asset-registry.md                    # Catalog of all brand assets
+  resource-guide.md                    # Index of official UW brand resources
+  web-template/                        # Official UW Style v5.3.0
+    index.html                         # Sample page with all base element styles
+    css/uw-style.css                   # Full CSS framework with design tokens
+    js/_uw-style.min.js                # Header, menus, search JS
+    images/                            # Crest SVG, icon sprite sheet, favicons
+  assets/
+    uw-crest-color.svg                 # Full-color W Crest (light backgrounds)
+    uw-crest-1color.svg                # 1-color W Crest (dark backgrounds)
+    favicon-w.svg                      # W favicon for browser tab
+    icons/                             # 211 hand-drawn SVG icons
+    elements/                          # Decorative hand-drawn elements (PNG)
+    illustrations/                     # Campus building line drawings (PNG)
+    textures/                          # Background texture patterns (PNG)
+commands/
+  uw-slides.md                         # /uw-slides slash command entry point
+skills/uw-slides/                      # Slide generation skill
+  SKILL.md                             # Main orchestration file
+  references/
+    style-presets.md                   # CSS definitions for all 8 presets
+    slide-types.md                     # HTML structure + rules for 10 slide types
+    best-practices.md                  # StratComm presentation guidelines
+    delivery-guide.md                  # Accessible delivery practices
+  assets/
+    html-template.md                   # HTML boilerplate + SlidePresentation JS class
+    viewport-base.css                  # Base CSS: viewport lock, scroll-snap, animations
+scripts/
+  open-presentation.sh                 # Open HTML in default browser
+  extract-pptx.py                      # Extract content from PowerPoint files
+  export-pdf.sh                        # Export to PDF via Playwright
+  deploy.sh                            # Deploy to Vercel
+uw resources/                          # Raw UW brand downloads (gitignored, not part of plugin)
 ```
 
 ## Brand Compliance
