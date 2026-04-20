@@ -53,7 +53,7 @@ Load these files and follow their specifications:
 4. **`references/slide-types.md`** - HTML structure for each slide type used
 5. **`../../brand/tokens.md`** - Design tokens (colors, fonts, type scale, spacing, chart palette)
 6. **`../../brand/brand-system.md`** - Logo rules, brand voice
-6. **`../../brand/assets/uw-crest-color.svg`** or **`../../brand/assets/uw-crest-1color.svg`** - Read the SVG and embed inline
+7. **`../../brand/assets/uw-crest-color.svg`** or **`../../brand/assets/uw-crest-1color.svg`** - Read the SVG and embed inline
 
 ### Generation Rules
 
