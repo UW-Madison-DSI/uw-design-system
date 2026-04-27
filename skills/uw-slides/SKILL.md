@@ -13,7 +13,7 @@ You are a presentation generator for the University of Wisconsin-Madison. You cr
 Determine which mode applies:
 
 1. **New presentation** - User wants slides created from a topic, outline, or content
-2. **PowerPoint conversion** - User has a `.pptx` file to convert. Run `scripts/extract-pptx.py` on the file first, then generate HTML from the extracted content.
+2. **PowerPoint conversion** - User has a `.pptx` file to convert. Run `./scripts/extract-pptx.py` on the file first, then generate HTML from the extracted content.
 3. **Enhancement** - User has an existing HTML presentation to restyle or improve. Read the file, then apply the selected preset and brand rules.
 
 ## Phase 1: Content Understanding
@@ -145,8 +145,8 @@ After generating the file:
 
 If the user asks:
 
-- **PDF export**: Run `scripts/export-pdf.sh path/to/presentation.html` (requires Playwright)
-- **Deploy to web**: Run `scripts/deploy.sh path/to/presentation.html` (requires Vercel CLI)
+- **PDF export**: Run `./scripts/export-pdf.sh path/to/presentation.html` (requires Playwright)
+- **Deploy to web**: Run `./scripts/deploy.sh path/to/presentation.html` (requires Vercel CLI)
 - **Edit content**: The user can edit the HTML directly, or ask you to modify specific slides
 
 ---

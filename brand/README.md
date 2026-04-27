@@ -68,9 +68,9 @@ Everything in `brand/` is the general-purpose design system. It defines the UW-M
 
 **Excluded (not part of the design system):**
 - `skills/uw-slides/` - Slide-specific presets, viewport CSS, slide-type HTML structures, SlidePresentation JS class. These consume design tokens but add presentation-specific layout that should not be generalized.
-- `uw resources/` - Raw downloads from brand.wisc.edu (gitignored, ~659MB). The curated subset lives in `assets/`.
+- `_source-materials/` - Raw downloads from brand.wisc.edu (gitignored, ~659MB). The curated subset lives in `assets/`.
 - `.claude-plugin/` - Plugin registration metadata for Claude Code.
-- `scripts/` - Build/export utilities (PDF export, deployment).
+- `skills/uw-slides/scripts/` - Build/export utilities (PDF export, deployment).
 
 Skills consume the design system but are not part of it. When extracting brand rules for a new context, start from `brand/` and ignore everything else.
 

@@ -1,4 +1,4 @@
-# UW-Madison Design System
+# DSI Skills
 
 The University of Wisconsin-Madison is a public R1 research university. Its visual identity is built on Badger Red (#c5050c), the Red Hat type family, the W Crest, and a set of hand-drawn illustrative elements that give the brand a distinctive, approachable personality. This repo codifies that identity as a structured design system: tokens, components, accessibility rules, and curated assets, all derived from the official [brand.wisc.edu](https://brand.wisc.edu/) guidelines and the UW Style CSS framework (v5.3.0). It is designed to be consumed by humans, AI tools, and code generators alike.
 
@@ -33,14 +33,19 @@ brand/                          Design system (the core of this repo)
   fonts/                        Red Hat Display + Text woff2 files (OFL license)
   web-template/                 Official UW Style v5.3.0 (upstream, do not modify)
 
-skills/uw-slides/               Example consumer: HTML slide generator
+skills/uw-slides/               UW-branded HTML slide generator
   SKILL.md                        Orchestration and generation rules
   references/                     Presets, slide types, best practices
   assets/                         HTML template, base CSS
+  scripts/                        Build/export utilities (PDF, deploy, PPTX import)
 
-scripts/                        Build and export utilities
+skills/dsi-deploy/              DSI infrastructure deployment assessor
+  SKILL.md                        Assessment and artifact generation rules
+  references/                     Compose/Dockerfile patterns, checklists
+
 commands/                       Claude Code slash command entry points
 .claude-plugin/                 Plugin registration for Claude Code
+_source-materials/              Raw brand.wisc.edu downloads (gitignored, ~659MB)
 ```
 
 ## Design Principles
@@ -79,7 +84,7 @@ The upstream UW Style CSS uses camelCase (`--uwRed`, `--uwDisplayFont`). The map
 
 Everything in `brand/` is the design system. It defines the UW-Madison brand identity independent of any output format.
 
-Everything outside `brand/` consumes the design system but is not part of it. The `skills/uw-slides/` directory, for example, adds presentation-specific layout (viewport locking, slide types, style presets) that should not be generalized to other contexts. The `uw resources/` directory (gitignored) contains the raw ~659MB download from brand.wisc.edu; the curated subset lives in `brand/assets/`.
+Everything outside `brand/` consumes the design system but is not part of it. The `skills/uw-slides/` directory, for example, adds presentation-specific layout (viewport locking, slide types, style presets) that should not be generalized to other contexts. The `_source-materials/` directory (gitignored) contains the raw ~659MB download from brand.wisc.edu; the curated subset lives in `brand/assets/`.
 
 When extracting brand rules for a new tool or context, start from `brand/` and ignore everything else.
 
@@ -137,8 +142,8 @@ A single `.html` file containing all CSS, JS, and SVG inline. Works offline (fon
 
 | Feature | Command | Requires |
 |---------|---------|----------|
-| PDF export | `./scripts/export-pdf.sh presentation.html` | Playwright |
-| Web deploy | `./scripts/deploy.sh presentation.html my-talk` | Vercel CLI |
+| PDF export | `./skills/uw-slides/scripts/export-pdf.sh presentation.html` | Playwright |
+| Web deploy | `./skills/uw-slides/scripts/deploy.sh presentation.html my-talk` | Vercel CLI |
 | PowerPoint import | (automatic when given a .pptx file) | `python-pptx` |
 
 ## Installation
@@ -158,7 +163,7 @@ claude --plugin-dir /path/to/this/repo
 ### Clone to the default location
 
 ```bash
-git clone <repo-url> ~/.claude/skills/uw-design-system
+git clone <repo-url> ~/.claude/skills/dsi-skills
 ```
 
 ## Source

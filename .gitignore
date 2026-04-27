@@ -1,5 +1,5 @@
 # UW brand assets (large binaries, not part of the plugin)
-uw resources/
+_source-materials/
 
 # Generated presentations
 uw-presentation-*.html
