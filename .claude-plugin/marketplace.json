@@ -9,6 +9,11 @@
       "name": "uw-slides",
       "source": "./",
       "description": "Generate UW-Madison branded HTML slide presentations"
+    },
+    {
+      "name": "dsi-deploy",
+      "source": "./",
+      "description": "Assess and prepare projects for deployment on DSI services infrastructure"
     }
   ]
 }
