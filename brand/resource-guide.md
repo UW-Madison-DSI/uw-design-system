@@ -2,7 +2,7 @@
 
 This documents all official UW-Madison brand resources available at [brand.wisc.edu/resources](https://brand.wisc.edu/resources/). All files are in RGB color mode at 72 PPI, intended for digital/screen use (not print).
 
-> **Curated vs. full set:** The `assets/` directory in this repo contains a curated subset: 211 red SVG icons, 18 red + 18 white PNG elements, 20 red PNG illustrations, and 5 red PNG textures. The full brand.wisc.edu download (in `uw resources/`, gitignored) includes all color variants (red, black, white) and additional formats (AI, PDF). The table below documents the full set; see `asset-registry.md` for what is actually available in `assets/`.
+> **Curated vs. full set:** The `assets/` directory in this repo contains a curated subset: 211 red SVG icons, 18 red + 18 white PNG elements, 20 red PNG illustrations, and 5 red PNG textures. The full brand.wisc.edu download (in `_source-materials/`, gitignored) includes all color variants (red, black, white) and additional formats (AI, PDF). The table below documents the full set; see `asset-registry.md` for what is actually available in `assets/`.
 
 ## Quick Reference
 

@@ -85,7 +85,7 @@ A full-width or partial-width red bar used as a structural accent:
 
 ### Graphic Elements (for reference, not embedded)
 
-The `uw resources/` directory contains hand-drawn graphic elements in PNG format that match the brand's playful personality: hand-drawn W, waves, scribbles, dots, grid textures, explosion, lightning bolt, etc. These are available in red, black, and white. They can be referenced as external images when presenting from a known location, but are NOT embedded in self-contained HTML due to file size.
+The `_source-materials/` directory contains hand-drawn graphic elements in PNG format that match the brand's playful personality: hand-drawn W, waves, scribbles, dots, grid textures, explosion, lightning bolt, etc. These are available in red, black, and white. They can be referenced as external images when presenting from a known location, but are NOT embedded in self-contained HTML due to file size.
 
 ## Brand Voice (Content Guidance)
 
